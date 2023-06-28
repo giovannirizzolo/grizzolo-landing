@@ -15,15 +15,18 @@
                     <h6 class="text-green">developer</h6>
                 </div>
             </div>
-
-        <div class="text-body-2 text-center md:text-start max-w-xs px-12 md:px-0 mb-6 md:mb-20">Lorem ipsum dolor sit amet consectetur. A orci dis eget nulla vel tellus amet sem viverra. Suscipit eget consectetur ullamcorper lorem ipsum amet nunc orci.</div>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1qhdGOWZxofPTMw7KpRTjc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <!-- <div class="text-body-2 text-center md:text-start max-w-xs px-12 md:px-0 mb-6 md:mb-20">Lorem ipsum dolor sit amet consectetur. A orci dis eget nulla vel tellus amet sem viverra. Suscipit eget consectetur ullamcorper lorem ipsum amet nunc orci.</div> -->
         <div class="flex gap-2 flex-col md:flex-row max-w-sm items-center">
             <button class="bg-secondary py-2 px-5 rounded-[10px] text-primary text-caption max-w-xs">Hire Me</button>
             <button class="py-2 px-5 rounded-[10px] border border-secondary text-secondary max-w-xs text-caption">See my projects</button>
         </div>
         </div>
     </div>
+
     <About/>
+    <Projects/>
+    <Social />
 </template>
 <script setup lang="ts">
 import gsap from 'gsap'
