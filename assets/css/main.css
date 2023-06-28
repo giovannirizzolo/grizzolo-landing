@@ -32,7 +32,7 @@
         @apply text-[16px] tracking-[0.25px] font-normal;
     }
     .text-button{
-        @apply text-[16px] tracking-[1.25px] font-normal capitalize;
+        @apply text-[16px] tracking-[1.25px] font-normal uppercase;
     }
     .text-caption{
         @apply text-[14px] tracking-[0.4px] font-normal capitalize;
