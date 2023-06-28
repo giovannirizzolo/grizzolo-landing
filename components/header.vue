@@ -6,13 +6,14 @@
             <NuxtLink class="text-button" href="#about">About</NuxtLink>
             <NuxtLink class="text-button" href="#projects">Projects</NuxtLink>
         </div>
+        
         <div class="flex md:hidden" @click="toggleMenuAnimation">
             <img 
                 src="/burger-menu.svg" 
                 alt="burger menu logo"
                 class="cursor-pointer">
         </div>
-        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-[100%] p-4">
+        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4">
             <img 
                 src="/close-menu.svg" 
                 alt="burger menu logo"
