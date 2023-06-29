@@ -1,6 +1,7 @@
 <template>
     <div class="columns-6 flex justify-between" ref="main">
-        <img src="/logo1.svg" alt="grizzolo logo">
+        <img class="md:hidden inline-block" src="/logo-mobile.svg" alt="grizzolo logo">
+        <img class="hidden md:inline-block" src="/logo-desktop.svg" alt="grizzolo logo">
         <div class="hidden md:flex md:gap-10 items-center justify-end">
             <NuxtLink class="text-button" href="#social">Social</NuxtLink>
             <NuxtLink class="text-button" href="#about">About</NuxtLink>
