@@ -13,16 +13,16 @@
             <h6 class="md:hidden block text-center max-w-sm">But If you want to find out more, check out my social links to...</h6>
         </div>
         <div class="md:row-start-4 md:col-start-2">
-            <ul>
-                <li class="inline-block md:flex md:items-baseline gap-2">
+            <ul class="list-none social-list">
+                <li class="flex md:items-baseline gap-2">
                     <h3 class="hidden md:block">Read my<h6 class="hidden md:block">megalomaniacal</h6></h3><h3 class="hidden md:block">posts on</h3><h3><a target="_blank" class="underline text-green hidden md:block" href="https://www.linkedin.com/in/giovanni-rizzolo/" >LinkedIn</a></h3>
                     <div class="block md:hidden text-center">Read my megalomaniacal posts on <a href="https://www.linkedin.com/in/giovanni-rizzolo/" class="inline-block md:hidden text-green underline">LinkedIn</a></div>
                 </li>
-                <li>
+                <li class="flex justify-center md:justify-start md:items-center">
                     <h3 class="hidden md:block">Fix my broken code on <a target="_blank" class="underline text-green" href="https://github.com/giovannirizzolo">GitHub</a></h3>
                     <div class="block md:hidden text-center">Fix my broken code on <a href="https://github.com/giovannirizzolo" class="inline-block md:hidden text-green underline">GitHub</a></div>
                 </li>
-                <li>
+                <li class="flex justify-center md:justify-start md:items-center">
                     <h3 class="hidden md:block">Like my pics on <a target="_blank" class="underline text-green" href="https://www.instagram.com/giovanni.rizzolo/">Instagram</a></h3>
                     <div class="block md:hidden text-center">Like my pics on <a href="https://www.instagram.com/giovanni.rizzolo/" class="underline text-green inline-block md:hidden">Instagram</a></div>
                 </li>
@@ -30,3 +30,14 @@
         </div>
     </div>
 </template>
+<style>
+@media (min-width: 768px) {
+    .social-list li::before{
+    content: url('/public/decorative-green-single.svg');
+    display: inline-block;
+    width: 16px; /* Adjust the dimensions as needed */
+    height: 16px;
+    margin-right: 8px;
+}
+}
+</style>
