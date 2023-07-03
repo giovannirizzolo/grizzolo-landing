@@ -1,20 +1,20 @@
 <template>
-    <div class="columns-6 flex justify-between" ref="main">
-        <img class="md:hidden inline-block" src="/logo-mobile.svg" alt="grizzolo logo">
-        <img class="hidden md:inline-block" src="/logo-desktop.svg" alt="grizzolo logo">
-        <div class="hidden md:flex md:gap-10 items-center justify-end">
-            <NuxtLink class="text-button" href="#social">Social</NuxtLink>
-            <NuxtLink class="text-button" href="#about">About</NuxtLink>
-            <NuxtLink class="text-button" href="#projects">Projects</NuxtLink>
+    <div :class="['columns-6 flex justify-between']" ref="main">
+        <img class="xl:hidden inline-block" src="/logo-mobile.svg" alt="grizzolo logo">
+        <img class="hidden xl:inline-block" src="/logo-desktop.svg" alt="grizzolo logo">
+        <div class="hidden xl:flex xl:gap-10 items-center justify-end">
+            <NuxtLink class="text-button" to="#social">Social</NuxtLink>
+            <NuxtLink class="text-button" to="#about">About</NuxtLink>
+            <NuxtLink class="text-button" to="#projects">Projects</NuxtLink>
         </div>
         
-        <div class="flex md:hidden" @click="toggleMenuAnimation">
+        <div class="flex xl:hidden" @click="toggleMenuAnimation">
             <img 
                 src="/burger-menu.svg" 
                 alt="burger menu logo"
-                class="cursor-pointer">
+                class="burger-menu cursor-pointer">
         </div>
-        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4">
+        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4" ref="menuRef">
             <img 
                 src="/close-menu.svg" 
                 alt="burger menu logo"
@@ -22,13 +22,13 @@
                 @click="toggleMenuAnimation">
             <ul class="text-end flex flex-col gap-3">
                 <li>
-                    <NuxtLink class="text-button text-primary" href="#social">Social</NuxtLink>
+                    <NuxtLink class="text-button text-primary" to="#social">Social</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink class="text-button text-primary" href="#about">About</NuxtLink>
+                    <NuxtLink class="text-button text-primary" to="#about">About</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink class="text-button text-primary" href="#projects">Projects</NuxtLink>
+                    <NuxtLink class="text-button text-primary" to="#projects">Projects</NuxtLink>
                 </li>
             </ul>
         </nav>
@@ -36,11 +36,16 @@
 </template>
 <script setup lang="ts">
 import gsap from 'gsap'
-const main = ref()
+import { getDebounced } from '@/utils/debounce'
 
-const isMenuOpen = ref<boolean>(false)
+
+const main = ref()
+const menuRef = ref()
+
 let tl: gsap.core.Timeline;
 let ctx: gsap.Context;
+
+
 
 const toggleMenuAnimation = () => { 
     tl.reversed(!tl.reversed())
@@ -49,7 +54,6 @@ const toggleMenuAnimation = () => {
 const triggerMenuAnimation = () => {
     ctx = gsap.context((self) => {
         if(self){
-            console.log('self :>> ', self);
             //@ts-ignore
             const menu = self.selector('.mobile-menu')
             tl = gsap
@@ -64,9 +68,27 @@ const triggerMenuAnimation = () => {
         }, main.value)
 }
 
+const closeMenu = () => {
+    if(!tl.reversed()){
+            getDebounced(toggleMenuAnimation, 100)
+        }
+}
+
+const handleClickOutside = (e: MouseEvent) => {
+    const isBurgerMenuIconClicked = (e.target as Element).closest('.burger-menu');
+    
+
+    if(menuRef.value && !menuRef.value.contains(e.target) && !isBurgerMenuIconClicked){
+        closeMenu()
+    }
+}
 
 onMounted(() => {
     triggerMenuAnimation()
+    document.addEventListener('click', handleClickOutside)
+    window.addEventListener('scroll', closeMenu)
+    window.addEventListener('resize', closeMenu)
+
 })
 
 onUnmounted(() => {
