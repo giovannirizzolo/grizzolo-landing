@@ -1,0 +1,43 @@
+@tailwind base;
+
+@layer base{
+    h1{
+        @apply text-[112px] tracking-[-1.5px] font-light;
+    }
+    h2{
+        @apply text-[70px] tracking-[-0.5px] font-light;
+    }
+    h3{
+        @apply text-[56px] tracking-[0px] font-normal;
+    }
+    h4{
+        @apply text-[40px] tracking-[0.25px] font-normal;
+    }
+    h5{
+        @apply text-[28px] tracking-[0px] font-normal;
+    }
+    h6{
+        @apply text-[23px] tracking-[0.15px] font-medium;
+    }
+    .text-subtitle-1{
+        @apply text-[19px] tracking-[0.15px] font-normal;
+    }
+    .text-subtitle-2{
+        @apply text-[16px] tracking-[0.1px] font-normal;
+    }
+    .text-body-1{
+        @apply text-[19px] tracking-[0.5px] font-medium;
+    }
+    .text-body-2{
+        @apply text-[16px] tracking-[0.25px] font-normal;
+    }
+    .text-button{
+        @apply text-[16px] tracking-[1.25px] font-normal uppercase;
+    }
+    .text-caption{
+        @apply text-[14px] tracking-[0.4px] font-normal capitalize;
+    }
+    .text-overline{
+        @apply text-[12px] tracking-[0.5px] font-normal uppercase;
+    }
+}
