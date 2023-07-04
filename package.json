@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "grizzolo-portfolio",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -15,6 +15,7 @@
     "nuxt": "^3.6.1"
   },
   "dependencies": {
-    "@nuxtjs/google-fonts": "^3.0.1"
+    "@nuxtjs/google-fonts": "^3.0.1",
+    "gsap": "^3.12.1"
   }
 }
