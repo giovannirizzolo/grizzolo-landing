@@ -1,25 +1,35 @@
 <template>
     <div :class="['columns-6 flex justify-between']" ref="main">
-        <img class="xl:hidden inline-block" src="/logo-mobile.svg" alt="grizzolo logo">
-        <img class="hidden xl:inline-block" src="/logo-desktop.svg" alt="grizzolo logo">
+        <nuxt-img 
+            class="xl:hidden inline-block"
+            src="/logo-mobile.svg"
+            alt="grizzolo logo"/>
+        <nuxt-img 
+            class="hidden xl:inline-block"
+            src="/logo-desktop.svg"
+            alt="grizzolo logo"
+        />
         <div class="hidden xl:flex xl:gap-10 items-center justify-end">
             <NuxtLink class="text-button" to="#social">Social</NuxtLink>
             <NuxtLink class="text-button" to="#about">About</NuxtLink>
-            <NuxtLink class="text-button" to="#projects">Projects</NuxtLink>
+            <NuxtLink class="text-button" to="#experiences">Experiences</NuxtLink>
         </div>
         
         <div class="flex xl:hidden" @click="toggleMenuAnimation">
-            <img 
+            <nuxt-img 
                 src="/burger-menu.svg" 
                 alt="burger menu logo"
-                class="burger-menu cursor-pointer">
+                class="burger-menu cursor-pointer"
+                format="webp"
+                 />
         </div>
         <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4" ref="menuRef">
-            <img 
+            <nuxt-img 
                 src="/close-menu.svg" 
                 alt="burger menu logo"
                 class="cursor-pointer"
-                @click="toggleMenuAnimation">
+                @click="toggleMenuAnimation"
+                format="webp"/>
             <ul class="text-end flex flex-col gap-3">
                 <li>
                     <NuxtLink class="text-button text-primary" to="#social">Social</NuxtLink>
@@ -28,7 +38,7 @@
                     <NuxtLink class="text-button text-primary" to="#about">About</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink class="text-button text-primary" to="#projects">Projects</NuxtLink>
+                    <NuxtLink class="text-button text-primary" to="#experiences">Experiences</NuxtLink>
                 </li>
             </ul>
         </nav>
@@ -44,8 +54,6 @@ const menuRef = ref()
 
 let tl: gsap.core.Timeline;
 let ctx: gsap.Context;
-
-
 
 const toggleMenuAnimation = () => { 
     tl.reversed(!tl.reversed())
@@ -77,7 +85,6 @@ const closeMenu = () => {
 const handleClickOutside = (e: MouseEvent) => {
     const isBurgerMenuIconClicked = (e.target as Element).closest('.burger-menu');
     
-
     if(menuRef.value && !menuRef.value.contains(e.target) && !isBurgerMenuIconClicked){
         closeMenu()
     }

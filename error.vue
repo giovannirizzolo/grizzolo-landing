@@ -5,8 +5,8 @@
     <h1 v-else>An error occurred</h1>
     <div class="flex justify-center mx-auto">
       <video autoplay loop playsinline class="rounded-xl xl:w-[50%]">
-        <source src="/assets/video/parkour.mp4" type="video/mp4">
-        <source src="/assets/video/parkour.webm" type="video/webm">
+        <source src="/video/parkour.mp4" type="video/mp4">
+        <source src="/video/parkour.webm" type="video/webm">
         <div class="text-caption">Your browser does not support the video tag.</div>
       </video>
     </div>

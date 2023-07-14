@@ -1,5 +1,4 @@
 export default defineEventHandler(async (event) => {
-    console.log('getRequestUrl(event) :>> ', getRequestURL(event));
     
     let telephoneNumber
     
@@ -9,7 +8,6 @@ export default defineEventHandler(async (event) => {
         }, 3000)    
     })
     
-    console.log('telephoneNumber :>> ', telephoneNumber);
 
     const body = JSON.stringify({
         telephoneNumber

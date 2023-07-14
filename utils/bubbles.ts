@@ -1,22 +1,34 @@
 
 import gsap from 'gsap';
 
-const bubbleSize = 10
-// const floatSpeed = 4
+const bubbleSize = 15
 const swayDuration = 5
 const  swayDist = 25
 
 
-export const createTween = (bubble: HTMLDivElement, height: number, width: number, floatDist: number, starting?: boolean) => {
-    let startPos = getRandom(height),
-    dimension = bubble.getBoundingClientRect();    
+const width = ref<number>(process.client ? window.innerWidth : 0)
+const height = ref<number>(process.client ? window.innerHeight : 0)
+
+let floatDist = height.value * 0.25
+
+if(process.client){
+    window.addEventListener("resize", () => {
+        width.value = window.innerWidth;
+        height.value = window.innerHeight;
+    });
+}
+
+export const createTween = (bubble: HTMLDivElement, starting?: boolean) => {
+    
+    let startPos = getRandom(height.value),
+    dimension = bubble.getBoundingClientRect();
 
     if(
         starting || 
         (
         ((dimension.top + bubble.offsetHeight) < 0) ||
         ((dimension.left + bubble.offsetWidth) < 0) ||
-        ((dimension.left + bubble.offsetWidth) > width)
+        ((dimension.left + bubble.offsetWidth) > width.value)
         )
     ) {
     let size = getRandom(bubbleSize, bubbleSize * 5); 
@@ -25,7 +37,7 @@ export const createTween = (bubble: HTMLDivElement, height: number, width: numbe
         height: size,
         x: 0, y: 0,
         top: startPos,
-        left: getRandom(-(size / 2), width - (size / 2)),
+        left: getRandom(-(size / 2), width.value - (size / 2)),
         opacity: getRandom(0.5, 1),
         rotation: getRandom(0, 360),
     });
@@ -37,7 +49,7 @@ export const createTween = (bubble: HTMLDivElement, height: number, width: numbe
     y: getFloatDist(floatDist),
     x: getSwayDist(),
     rotation: getRandom(-90, 90),
-    onComplete: () => createTween(bubble, height, width, floatDist, false),
+    onComplete: () => createTween(bubble, false),
     });
 }
 
