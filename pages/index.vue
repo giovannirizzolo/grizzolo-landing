@@ -6,6 +6,7 @@
             alt="grizzolo portrait" 
             id="portrait"
             format="webp"
+            width="100vw"
             sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
             />
         <!-- <div>
@@ -26,7 +27,7 @@
                 width="100%"
                 height="152"
                 frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; preconnect;"
                 loading="lazy"
             />
         <div class="flex gap-2 flex-col xl:flex-row items-center mt-4">
@@ -69,7 +70,8 @@ onMounted(async () => {
 
 useSeoMeta({
     title: 'grizzolo',
-    description: 'grizzolo portfolio website'
+    description: 'grizzolo portfolio website',
+    
 })
 
 definePageMeta({
