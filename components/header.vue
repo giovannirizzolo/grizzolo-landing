@@ -1,11 +1,15 @@
 <template>
-    <div :class="['columns-6 flex justify-between']" ref="main">
+    <div :class="['columns-6 flex justify-between items-center']" ref="main">
         <nuxt-img 
             class="xl:hidden inline-block"
             src="/logo-mobile.svg"
+            width="40"
+            height="20"
             alt="grizzolo logo"/>
         <nuxt-img 
             class="hidden xl:inline-block"
+            width="105"
+            height="50"
             src="/logo-desktop.svg"
             alt="grizzolo logo"
         />
@@ -19,8 +23,11 @@
             <nuxt-img 
                 src="/burger-menu.svg" 
                 alt="burger menu logo"
+                width="40"
+                height="20"
                 class="burger-menu cursor-pointer"
                 format="webp"
+                
                  />
         </div>
         <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4" ref="menuRef">

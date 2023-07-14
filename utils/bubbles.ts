@@ -5,7 +5,6 @@ const bubbleSize = 15
 const swayDuration = 5
 const  swayDist = 25
 
-
 const width = ref<number>(process.client ? window.innerWidth : 0)
 const height = ref<number>(process.client ? window.innerHeight : 0)
 
