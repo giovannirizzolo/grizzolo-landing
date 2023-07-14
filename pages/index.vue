@@ -40,11 +40,13 @@
     <Social />
 </template>
 <script setup lang="ts">
-useSeoMeta({
-    title: 'grizzolo',
-
-})
 import gsap from 'gsap'
+
+const config = useRuntimeConfig()
+console.log('Runtime config:', config)
+if (process.server) {
+  console.log('API secret:', config.nitro?.envPrefix)
+}
 
 const grizzoloWords = ref<Array<string>>(['Frontend web', 'Sicilian', 'Relentless', 'Sushi lover 🍣'])
 
@@ -64,6 +66,11 @@ onMounted(async () => {
     handleProfessionTypingAnimation()
 })
 
+
+useSeoMeta({
+    title: 'grizzolo',
+    description: 'grizzolo portfolio website'
+})
 
 definePageMeta({
     layout: "default"
