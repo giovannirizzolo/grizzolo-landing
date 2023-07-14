@@ -1,6 +1,6 @@
 <template>
-    <!-- <div id="projects" class="xl:my-32 py-36 flex flex-col"> -->
-    <div id="projects" class="flex flex-col min-h-screen xl:items-stretch xl:justify-center py-10">
+    <!-- <div id="experiences" class="xl:my-32 py-36 flex flex-col"> -->
+    <div id="experiences" class="flex flex-col min-h-screen xl:items-stretch xl:justify-center py-10">
         <div class="mb-24 xl:mb-48 flex flex-col items-center xl:block gap-12">
             <h4 class="xl:block hidden max-w-xl">Still figuring out how to compete with Musk’s SpaceX, but meanwhile...</h4>
             <h6 class="xl:hidden block text-center max-w-[65%]">Still figuring out how to compete with Musk’s SpaceX...</h6>
@@ -35,8 +35,20 @@
             <div class="text-body-2 inline-block xl:hidden">10/22</div>
         </div>
         <div class="flex justify-end mt-40 xl:mt-8">
-            <img class="hidden xl:inline-block max-w-lg" src="/decorative-green.svg" alt="green decorative element evocating a styled lemon">
-            <img class="xl:hidden inline-block max-w-lg" src="/decorative-green-mobile.svg" alt="green decorative element evocating a styled lemon">
+            <nuxt-img 
+                class="inline-block max-w-lg"
+                src="/decorative-green.svg"
+                alt="green decorative element evocating a styled lemon"
+                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                loading="lazy"
+                />
+            <!-- <nuxt-img 
+                class="xl:hidden inline-block max-w-lg"
+                src="/decorative-green.svg"
+                alt="green decorative element evocating a styled lemon"
+                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                loading="lazy"
+                /> -->
         </div>
     </div>
     </div>

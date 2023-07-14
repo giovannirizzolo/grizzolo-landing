@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  experimental: {
+    payloadExtraction: false
+  },
   css: [
     '~/assets/css/global.css',
     '~/assets/css/tailwind.custom.css'
@@ -8,6 +10,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxt/image',
 
   ],
   tailwindcss: {
@@ -17,5 +20,11 @@ export default defineNuxtConfig({
     families: {
       Jost: true
     }
-  }
+  },
+  nitro: {
+    preset: 'vercel',
+    future: {
+      nativeSWR: true
+    }
+  },
 })

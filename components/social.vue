@@ -32,7 +32,7 @@
             </ul>
         </div>
         <div class="xl:hidden">
-            <img src="/decorative-black-mobile.svg" alt="">
+            <nuxt-img src="/decorative-black-mobile.svg" alt="" format="webp"/>
         </div>
     </div>
 </template>
@@ -53,7 +53,7 @@ const fetchPhoneNumber = async () => {
 <style>
 @media (min-width: 1024px) {
     .social-list li::before{
-    content: url('/public/decorative-green-single.svg');
+    content: url('/decorative-green-single.svg');
     display: inline-block;
     width: 16px; /* Adjust the dimensions as needed */
     height: 16px;
