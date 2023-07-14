@@ -8,6 +8,7 @@
             <nuxt-img 
                 class="inline-block max-w-lg" 
                 src="/decorative-green.svg"
+                width="100vw"
                 sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                 loading="lazy"
                 alt="green decorative element evocating a styled lemon"
@@ -28,6 +29,7 @@
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     loading="lazy"
                     fit="cover"
+                    width="100vw"
                     quality="60"
                 />
             </div>
@@ -37,6 +39,7 @@
                     src="/palermo-2.jpg"
                     alt=""
                     format="webp"
+                    width="100vw"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     loading="lazy"
                     fi
@@ -48,6 +51,7 @@
                     alt=""
                     format="webp"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+                    width="100vw"
                     loading="lazy"
                 />
             </div>
@@ -57,6 +61,7 @@
                     src="/palermo-4.jpg"
                     alt=""
                     format="webp"
+                    width="100vw"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     loading="lazy"
                 />
