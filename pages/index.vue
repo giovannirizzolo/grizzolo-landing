@@ -1,8 +1,6 @@
 <template>
     <div class="flex flex-col xl:flex-row-reverse xl:justify-between min-h-screen justify-start items-center xl:items-stretch mt-8">
         <nuxt-img class="w-[140px] h-[140px] xl:w-[540px] xl:h-[540px] object-cover col-start-3 rounded-tl-[50px] rounded-br-[50px]" src="/portrait.jpg" alt="grizzolo portrait" id="portrait" format="webp" width="100vw" sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw" />
-        
-        </div> -->
         <div class="flex flex-col gap-4 items-center xl:items-start">
             <div class="text-subtitle-1 hidden xl:block">Welcome to my website</div>
             <div class="flex flex-col gap-4 mb-4">
