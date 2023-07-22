@@ -1,20 +1,20 @@
 <template>
     <div class="hidden absolute container bg-primary max-auto p-6 flex-col gap-8 rounded-xl border border-secondary max-w-xs xl:max-w-3xl shadow-sm xl:shadow-2xl">
-        <div class="flex flex-col xl:flex-row justify-between gap-4">
+        <div class="flex flex-col xl:flex-row xl:items-start justify-between gap-4">
             <div class="flex flex-col gap-4 xl:w-[45%]">
                 <h6>{{ title }}</h6>
                 <div class="text-subtitle-2">{{ dates }}</div>
                 <div class="text-body-2">{{ description }}</div>
             </div>
             <nuxt-img 
-                    class="object-cover xl:w-[45%] rounded-2xl" 
+                    class="object-contain flex items-start xl:w-[45%] rounded-2xl" 
                     :src="imageSrc"
-                    alt="A beautiful pic of the most important heroes of Italian Republic, Giovanni Falcone and Paolo Borsellino"
+                    alt=""
                     format="webp"
                     width="100vw"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     loading="lazy"
-                    fit="cover"
+                    fit="contain"
                 />
         </div>
         <div class="flex justify-between items-center">
@@ -63,6 +63,9 @@ defineProps({
     },
     socialLinks: {
         type: Array as PropType<Array<{logo: string, link: string}>>
+    },
+    altText: {
+        type: String,
     }
 })
 </script>

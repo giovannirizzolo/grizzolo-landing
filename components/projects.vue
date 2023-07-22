@@ -36,6 +36,7 @@
                 description="NoMafiaMemorial is a project developed by Uppercat Studio which aims to keep alive the memory of the deceased pioneers of anti-mafia and justice's heroes such as Falcone and Borsellino."
                 project-link="https://www.nomafiamemorial.org/"
                 image-src="/falcone-borsellino.jpg"
+                altText="A beautiful pic of the most important heroes of Italian Republic, Giovanni Falcone and Paolo Borsellino"
                 :social-links="[
                     {
                         link: 'https://www.instagram.com/nomafiamemorial/',
@@ -52,7 +53,8 @@
                 id="appearingMagic"
                 title="Magicmotorsport partners"
                 dates="03/22 - 09/22"
-                image-src="/palermo-1.jpg"
+                altText="A screenshot of Magicmotorsport partners platform"
+                image-src="/magic-partners.png"
                 description="A platform entirely dedicated to Magicmotorsport distributors all over the world. Goal of this project is to give them more visibility and chances to increase their market opportunities"
                 project-link="https://partners.magicmotorsport.com/"
                 :social-links="[
@@ -201,7 +203,7 @@ onMounted(() => {
             xPercent: -50,
             yPercent: -50,
             left: '50%',
-            top: '55%',
+            top: '60%',
             paused: true,
         }
 
