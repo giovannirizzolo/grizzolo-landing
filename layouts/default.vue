@@ -1,6 +1,5 @@
 <template>
-  <!-- mx-32 sm:mx-6 -->
-    <div class="container px-6 xl:px-8 my-8 xl:mx-auto">
+    <div :class="['px-6 xl:px-8 py-8 xl:mx-auto xl:w-[1440px]', { 'backdrop': isMenuOpen }]" >
       <div id="frame" ref="frame">
         <div 
             v-for="_, idx in bubbleCount"
@@ -9,7 +8,7 @@
             class="bubble"
         />
     </div>
-      <Header />
+      <Header @menu-toggled="handleMenuToggled"/>
       <slot />
       <Footer/>
     </div>
@@ -26,6 +25,7 @@
   import {createTween} from '@/utils/bubbles'
   
   const bubbleCount = ref<number>(30)
+  const isMenuOpen = ref<boolean>(false)
   
   const bubbles = ref<InstanceType<typeof Array<HTMLDivElement>>>()
   const frame = ref<InstanceType<typeof HTMLDivElement>>()
@@ -36,6 +36,9 @@
               createTween(bubble, true)
       })
       }
+  }
+  const handleMenuToggled = () => {
+    isMenuOpen.value = !isMenuOpen.value
   }
 
   onMounted(() => {
@@ -80,5 +83,19 @@
     /* z-index: -2; */
   }
   
+  .backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999; /* Adjust the z-index value to ensure the backdrop is above other elements */
+  pointer-events: none;
+  /* &::not(nav){ */
+    /* filter: blur(1px);  */
+  /* } */
+}
+
   
   </style>

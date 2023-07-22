@@ -24,11 +24,5 @@ export default defineNuxtConfig({
   nitro: {
     //altering preset will cause routes prerender break in prod env
     preset: 'vercel-edge',
-    // prerender: {
-    //   crawlLinks: true,
-    // },
-    // future: {
-    //   nativeSWR: true
-    // }
   },
 })
