@@ -49,7 +49,9 @@ useSeoMeta({
     description: 'grizzolo portfolio website',
 })
 
+
 definePageMeta({
     layout: 'default',
+    
 })
 </script>
