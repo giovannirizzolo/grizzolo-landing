@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {rel: 'icon', type: 'image/x-icon',  href: '/public/favicon.ico'}
+      ]
+    }
+  },
   experimental: {
     payloadExtraction: false
   },
@@ -25,4 +32,5 @@ export default defineNuxtConfig({
     //altering preset will cause routes prerender break in prod env
     preset: 'vercel-edge',
   },
+  
 })
