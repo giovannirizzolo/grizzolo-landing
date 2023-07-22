@@ -24,7 +24,7 @@
   
   import {createTween} from '@/utils/bubbles'
   
-  const bubbleCount = ref<number>(30)
+  const bubbleCount = ref<number>(5)
   const isMenuOpen = ref<boolean>(false)
   
   const bubbles = ref<InstanceType<typeof Array<HTMLDivElement>>>()

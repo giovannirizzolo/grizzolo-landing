@@ -18,7 +18,7 @@ if(process.client){
 }
 
 export const createTween = (bubble: HTMLDivElement, starting?: boolean) => {
-    
+    console.log('here :>> ');
     let startPos = getRandom(height.value),
     dimension = bubble.getBoundingClientRect();
 
