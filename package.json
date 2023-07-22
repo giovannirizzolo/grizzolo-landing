@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.1",
-    "gsap": "^3.12.1"
+    "gsap": "^3.12.1",
+    "sass": "^1.64.1"
   }
 }

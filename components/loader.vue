@@ -1,0 +1,45 @@
+<template>
+        <div class="loader"/>
+</template>
+<style lang="scss">
+.loader {
+   width:50px;
+   height:50px;
+   display:inline-block;
+   padding:0px;
+   border:3px solid #379634;
+   -webkit-animation: loader 1s ease-in-out infinite alternate;
+   animation: loader 1s ease-in-out infinite alternate;
+}
+
+.loader:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 3px solid #379634;
+}
+
+.loader:after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 3px solid #379634;
+}
+
+@keyframes loader {
+   from {transform: rotate(0deg) scale(1,1);border-radius:0px;}
+   to {transform: rotate(360deg) scale(0, 0);border-radius:50px;}
+}
+@-webkit-keyframes loader {
+   from {-webkit-transform: rotate(0deg) scale(1, 1);border-radius:0px;}
+   to {-webkit-transform: rotate(360deg) scale(0,0 );border-radius:50px;}
+}
+</style>

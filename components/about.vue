@@ -5,22 +5,20 @@
             <h4 class="xl:hidden block text-center">Who is <span class="text-green">grizzolo</span>?</h4>
             <h6 class="hidden xl:block mb-8">Well... still not famous enough to find an answer on Wikipedia, so....</h6>
             <div class="xl:hidden block text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer on Wikipedia, so....</div>
-            <nuxt-img 
-                class="inline-block max-w-lg" 
-                src="/decorative-green.svg"
-                width="100vw"
-                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-                loading="lazy"
-                alt="green decorative element evocating a styled lemon"
-            />
+            <decorative-element 
+                    class="hidden xl:flex xl:relative" 
+                    fill="#379634"
+                    :horizontal="true"
+                    :element-count="8"
+                />
             <div class="max-w-xl flex flex-col items-center xl:items-start gap-8">
-                <div class="body-1 text-center xl:text-start max-w-[70%]">Giovanni Rizzolo (aka grizzolo) is a sicilian web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</div>
+                <div class="body-1 text-center xl:text-start max-w-[70%]">Giovanni Rizzolo (aka grizzolo) is a web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</div>
                 <div class="hidden xl:body-1 text-center xl:text-start max-w-[65%]">25 years old, 100% mediterranean blood flows into his veins.</div>
                 <div class="body-1 text-center xl:text-start max-w-[65%]">His obsession for tech mixed with an unconditional love for his homeland are the fuel for powering his will to make Sicily a better place for people to work, live, so grow as professionals and most important, as human beings.</div>
             </div>
         </div>
-        <div class="grid grid-cols-1 justify-items-center xl:content-center xl:grid-cols-7 gap-4">
-            <div class="xl:col-start-2 col-span-3">
+        <div class="grid justify-items-center xl:content-center xl:grid-cols-7 gap-4">
+            <div class="xl:col-start-2 xl:col-span-3">
                 <nuxt-img 
                     class="object-cover w-[400px] h-[300px] rounded-2xl" 
                     src="/palermo-1.jpg"
@@ -33,7 +31,7 @@
                     quality="60"
                 />
             </div>
-            <div class="col-span-3">
+            <div class="xl:col-span-3">
                 <nuxt-img 
                     class="object-cover w-[400px] h-[300px] rounded-2xl overflow-hidden"
                     src="/palermo-2.jpg"
@@ -44,7 +42,7 @@
                     loading="lazy"
                     fi
                     t="cover" quality="60"/></div>
-            <div class="col-span-3">
+            <div class="xl:col-span-3">
                 <nuxt-img 
                     class="object-cover w-[400px] h-[300px] rounded-2xl"
                     src="/palermo-3.jpg"
@@ -55,7 +53,7 @@
                     loading="lazy"
                 />
             </div>
-            <div class="col-span-3">
+            <div class="xl:col-span-3">
                 <nuxt-img 
                     class="object-cover w-[400px] h-[300px] rounded-2xl"
                     src="/palermo-4.jpg"
@@ -68,9 +66,8 @@
             </div>
         </div>
         <decorative-element 
-            class="hidden xl:block xl:absolute right-32 top-[900px]" 
-            :rotation-angle="'90'"
-            :element-count="5"/>
+        class="hidden xl:block xl:relative xl:right-32 xl:-top-10" 
+        :element-count="6"/>
     </div>
 </template>
 <script setup lang="ts">
