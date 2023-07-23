@@ -6,15 +6,17 @@
                 <div class="text-subtitle-2">{{ dates }}</div>
                 <div class="text-body-2">{{ description }}</div>
             </div>
+            :src="imageSrc"
             <nuxt-img 
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2018%2F03%2F23%2F566310-sky-landscape-road-sunset.jpg&f=1&nofb=1&ipt=ec4c51d5ff8dd15fc0b2c8adc818e2833160d7951f7abe9e691d84369be96e37&ipo=images"
                     class="object-contain flex items-start xl:w-[45%] rounded-2xl" 
-                    :src="imageSrc"
                     alt=""
                     format="webp"
                     width="100vw"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     loading="lazy"
                     fit="contain"
+                    placeholder="/palermo-1.jpg"
                 />
         </div>
         <div class="flex justify-between items-center">

@@ -29,6 +29,7 @@
                     fit="cover"
                     width="100vw"
                     quality="60"
+                    placeholder
                 />
             </div>
             <div class="xl:col-span-3">
@@ -39,9 +40,12 @@
                     format="webp"
                     width="100vw"
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-                    loading="lazy"
-                    fi
-                    t="cover" quality="60"/></div>
+                    fit="cover" 
+                    quality="60"
+                    placeholder
+                    />
+                    <!-- loading="lazy" -->
+            </div>
             <div class="xl:col-span-3">
                 <nuxt-img 
                     class="object-cover w-[400px] h-[300px] rounded-2xl"
@@ -51,6 +55,7 @@
                     sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
                     width="100vw"
                     loading="lazy"
+                    placeholder
                 />
             </div>
             <div class="xl:col-span-3">
