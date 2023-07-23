@@ -56,12 +56,10 @@ const fetchPhoneNumber = async () => {
     loading.value = true
     const { data } = await useFetch<Record<'telephoneNumber', string>>('/api/phone')
 
-    if(!data.value) return
-    
-    console.log('data.value.telephoneNumber :>> ', data.value.telephoneNumber);
-    
-    loading.value = false
-    phoneNumber.value = data.value.telephoneNumber
+    if(data.value){
+        loading.value = false
+        phoneNumber.value = data.value.telephoneNumber
+    }
 }
 </script>
 <style>
