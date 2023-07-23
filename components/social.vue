@@ -47,6 +47,8 @@
     </div>
 </template>
 <script setup lang="ts">
+import { json } from 'stream/consumers';
+
 const loading = ref<boolean>(false)
 const phoneNumber = ref<string>()
 
@@ -54,12 +56,12 @@ const fetchPhoneNumber = async () => {
     loading.value = true
     const { data } = await useFetch<Record<'telephoneNumber', string>>('/api/phone')
 
-    console.log('data.value :>> ', data.value);
-
-    if (data.value) {
-        loading.value = false
-        phoneNumber.value = data.value.telephoneNumber
-    }
+    if(!data.value) return
+    
+    console.log('data.value.telephoneNumber :>> ', data.value.telephoneNumber);
+    
+    loading.value = false
+    phoneNumber.value = data.value.telephoneNumber
 }
 </script>
 <style>
