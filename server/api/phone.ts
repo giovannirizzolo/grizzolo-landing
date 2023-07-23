@@ -9,9 +9,7 @@ export default defineEventHandler(async (event) => {
     })
     
 
-    const body = JSON.stringify({
+    return { 
         telephoneNumber
-    })
-    
-    event.node.res.end(body)
+    }
 })
