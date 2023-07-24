@@ -6,7 +6,7 @@
                 <div class="text-subtitle-2">{{ dates }}</div>
                 <div class="text-body-2">{{ description }}</div>
             </div>
-            <nuxt-img :src="imageSrc" class="object-contain flex items-start xl:w-[45%] rounded-2xl" alt="" format="webp" width="100vw" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" loading="lazy" fit="contain" placeholder />
+            <nuxt-img :src="imageSrc" class="object-contain flex items-start xl:w-[45%] rounded-2xl" alt="" format="webp" width="100vw" sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw" fit="contain" placeholder />
         </div>
         <div class="flex justify-between items-center">
             <nuxt-link v-if="projectLink" :to="projectLink" target="_blank" class="flex items-center px-4 py-2 text-button bg-secondary rounded-xl text-primary">Check it out</nuxt-link>
