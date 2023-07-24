@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  app: {
+    head: {
+      link: [
+        {rel: 'icon', type: 'image/x-icon',  href: '/favicon.ico'}
+      ]
+    }
+  },
+  experimental: {
+    payloadExtraction: false
+  },
   css: [
     '~/assets/css/global.css',
     '~/assets/css/tailwind.custom.css'
@@ -8,6 +17,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
+    '@nuxt/image',
 
   ],
   tailwindcss: {
@@ -17,8 +27,10 @@ export default defineNuxtConfig({
     families: {
       Jost: true
     }
-  }, 
-  nitro: {
-    preset: 'vercel',
   },
+  nitro: {
+    //altering preset will cause routes prerender break in prod env
+    preset: 'vercel-edge',
+  },
+  
 })
