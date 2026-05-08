@@ -5,8 +5,11 @@
             alt="grizzolo portrait"
             id="portrait"
             format="webp"
-            width="100vw"
-            sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw"
+            width="540"
+            height="540"
+            sizes="xs:140px sm:140px md:140px lg:140px xl:540px"
+            fetchpriority="high"
+            preload
             placeholder />
         <div class="flex flex-col gap-4 items-center xl:items-start">
             <div class="text-subtitle-1 hidden xl:block">Welcome to my website</div>

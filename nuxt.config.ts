@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://open.spotify.com' },
       ]
     }
   },
@@ -26,7 +27,10 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Jost: true
-    }
+    },
+    display: 'swap',
+    preload: true,
+    download: true,
   },
   nitro: {
     //altering preset will cause routes prerender break in prod env
