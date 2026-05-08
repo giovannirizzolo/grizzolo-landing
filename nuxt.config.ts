@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        {rel: 'icon', type: 'image/x-icon',  href: '/favicon.ico'}
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   },
@@ -35,4 +35,5 @@ export default defineNuxtConfig({
   runtimeConfig: {
     phoneNumber: process.env.PHONE_NUMBER,
   },
+  compatibilityDate: '2026-05-08'
 })
