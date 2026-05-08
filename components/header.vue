@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[50%] sm:w-[40%] h-screen p-4 pointer-events-auto" ref="menuRef">
+        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary fixed top-0 right-0 w-[50%] sm:w-[40%] h-screen p-4 pointer-events-auto z-50" ref="menuRef">
             <nuxt-img src="/close-menu.svg" alt="close menu" class="cursor-pointer dark:invert dark:brightness-200" @click="toggleMenuAnimation" format="webp" />
             <ul class="text-end flex flex-col gap-3">
                 <li>
