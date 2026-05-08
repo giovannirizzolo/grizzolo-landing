@@ -20,8 +20,8 @@
         </div>
       </div>
       <div class="relative w-full" style="height: 152px">
-        <SkeletonBlock v-if="!spotifyLoaded" width="100%" height="152px" />
-        <iframe v-show="spotifyLoaded" style="border-radius: 12px"
+        <SkeletonBlock v-if="!spotifyLoaded" class="absolute inset-0 z-10" width="100%" height="152px" border-radius="12px" />
+        <iframe style="border-radius: 12px"
           src="https://open.spotify.com/embed/playlist/1qhdGOWZxofPTMw7KpRTjc?utm_source=generator&theme=0" width="100%"
           height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
           @load="spotifyLoaded = true" />
