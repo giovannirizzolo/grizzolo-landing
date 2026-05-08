@@ -16,11 +16,12 @@ withDefaults(defineProps<{
 
 <style scoped>
 .skeleton-block {
+    pointer-events: none;
     background: linear-gradient(
         90deg,
-        rgba(28, 17, 10, 0.06) 25%,
-        rgba(55, 150, 52, 0.12) 50%,
-        rgba(28, 17, 10, 0.06) 75%
+        var(--skeleton-base)  25%,
+        var(--skeleton-shine) 50%,
+        var(--skeleton-base)  75%
     );
     background-size: 200% 100%;
     animation: shimmer 1.8s ease-in-out infinite;

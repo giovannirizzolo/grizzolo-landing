@@ -2,10 +2,16 @@
 export default defineNuxtConfig({
   app: {
     head: {
+      script: [
+        {
+          // prevent flash of wrong theme on hard reload
+          innerHTML: `(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
+        },
+      ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'preconnect', href: 'https://open.spotify.com' },
-      ]
+      ],
     }
   },
   experimental: {

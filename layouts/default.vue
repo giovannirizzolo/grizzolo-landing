@@ -23,13 +23,15 @@
   gsap.registerPlugin(TextPlugin, EasePack, CSSPlugin)
   
   import {createTween} from '@/utils/bubbles'
-  
+
   const bubbleCount = ref<number>(5)
   const isMenuOpen = ref<boolean>(false)
-  
+
   const bubbles = ref<InstanceType<typeof Array<HTMLDivElement>>>()
   const frame = ref<InstanceType<typeof HTMLDivElement>>()
-  
+
+  const { initTheme } = useTheme()
+
   const handleBubbles = () => {
       if(bubbles.value){
           bubbles.value.forEach((bubble) => {
@@ -43,6 +45,7 @@
 
   onMounted(() => {
     handleBubbles()
+    initTheme()
   })
   </script>
   <style>
@@ -78,7 +81,7 @@
     right: -6px;
     bottom: -6px;
     border-radius: 50%;
-    background-color: #379634;
+    background-color: var(--color-bubble);
     filter: blur(40px);
     /* z-index: -2; */
   }

@@ -7,7 +7,7 @@
    height:50px;
    display:inline-block;
    padding:0px;
-   border:3px solid #379634;
+   border:3px solid var(--color-accent);
    -webkit-animation: loader 1s ease-in-out infinite alternate;
    animation: loader 1s ease-in-out infinite alternate;
 }
@@ -20,7 +20,7 @@
   left: 5px;
   right: 5px;
   bottom: 5px;
-  border: 3px solid #379634;
+  border: 3px solid var(--color-accent);
 }
 
 .loader:after {
@@ -31,7 +31,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
-  border: 3px solid #379634;
+  border: 3px solid var(--color-accent);
 }
 
 @keyframes loader {

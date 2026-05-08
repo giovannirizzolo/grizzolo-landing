@@ -1,26 +1,99 @@
-html{
-    scroll-behavior: smooth;
-}
-body{
-    background-color: #EFF0D1; /* primary */
+/* ── Theme tokens ── */
+:root {
+  --color-primary: #EFF0D1;
+  --color-secondary: #1C110A;
+  --color-accent: #379634;
+  --color-bubble: #379634;
+  --skeleton-base: rgba(28, 17, 10, 0.06);
+  --skeleton-shine: rgba(55, 150, 52, 0.14);
 }
 
-/* Custom Scrollbar */
+.dark {
+  --color-primary: #0E0D16;
+  --color-secondary: #F2F1FF;
+  --color-accent: #2DD4BF;
+  --color-bubble: #2DD4BF;
+  --skeleton-base: rgba(242, 241, 255, 0.06);
+  --skeleton-shine: rgba(45, 212, 191, 0.20);
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  transition: background-color 0.1s, color 0.1s;
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  opacity: 0.4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.7;
+}
+
+/* ── View Transitions ripple ── */
+::view-transition-new(root) {
+  animation: theme-ripple-in 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+@keyframes theme-ripple-in {
+  from {
+    clip-path: circle(0% at var(--ripple-x, 50%) var(--ripple-y, 50%));
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+
+  to {
+    clip-path: circle(170% at var(--ripple-x, 50%) var(--ripple-y, 50%));
   }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none;
   }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+}
+
+/* ── Photo glow (dark mode) ── */
+.dark .photo-container {
+    box-shadow:
+        0 0 0 1px rgba(45, 212, 191, 0.10),
+        0 0 28px rgba(45, 212, 191, 0.20),
+        0 0 60px rgba(45, 212, 191, 0.09);
+    transition: box-shadow 0.4s;
+}
+
+.photo-glow-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% -10%, rgba(45, 212, 191, 0.13) 0%, transparent 58%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 1;
+}
+
+.dark .photo-glow-overlay {
+    opacity: 1;
+}

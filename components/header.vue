@@ -1,18 +1,24 @@
 <template>
     <div :class="['columns-6 flex justify-between items-center']" ref="main">
-        <nuxt-img class="xl:hidden inline-block" src="/logo-mobile.svg" width="40" height="20" alt="grizzolo logo" />
-        <nuxt-img class="hidden xl:inline-block" width="105" height="50" src="/logo-desktop.svg" alt="grizzolo logo" />
-        <div class="hidden xl:flex xl:gap-10 items-center justify-end">
+        <nuxt-img class="lg:hidden inline-block dark:invert dark:brightness-200" src="/logo-mobile.svg" width="40" height="20" alt="grizzolo logo" />
+        <nuxt-img class="hidden lg:inline-block dark:invert dark:brightness-200" width="105" height="50" src="/logo-desktop.svg" alt="grizzolo logo" />
+
+        <div class="hidden lg:flex lg:gap-10 items-center justify-end">
             <NuxtLink class="text-button" to="#social">Contacts</NuxtLink>
             <NuxtLink class="text-button" to="#about">About</NuxtLink>
             <NuxtLink class="text-button" to="#experiences">Experiences</NuxtLink>
+            <ThemeToggle />
         </div>
 
-        <div class="flex xl:hidden" @click="toggleMenuAnimation">
-            <nuxt-img src="/burger-menu.svg" alt="burger menu logo" width="40" height="40" class="burger-menu cursor-pointer" format="webp" />
+        <div class="flex lg:hidden items-center gap-3">
+            <ThemeToggle />
+            <div @click="toggleMenuAnimation">
+                <nuxt-img src="/burger-menu.svg" alt="burger menu logo" width="40" height="40" class="burger-menu cursor-pointer dark:invert dark:brightness-200" format="webp" />
+            </div>
         </div>
-        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[40%] h-screen p-4 pointer-events-auto" ref="menuRef">
-            <nuxt-img src="/close-menu.svg" alt="burger menu logo" class="cursor-pointer" @click="toggleMenuAnimation" format="webp" />
+
+        <nav class="hidden flex-col items-end gap-4 mobile-menu bg-secondary absolute top-0 right-0 w-[50%] sm:w-[40%] h-screen p-4 pointer-events-auto" ref="menuRef">
+            <nuxt-img src="/close-menu.svg" alt="close menu" class="cursor-pointer dark:invert dark:brightness-200" @click="toggleMenuAnimation" format="webp" />
             <ul class="text-end flex flex-col gap-3">
                 <li>
                     <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#about">About</NuxtLink>
@@ -51,14 +57,16 @@ const triggerMenuAnimation = () => {
         if (self) {
             //@ts-ignore
             const menu = self.selector('.mobile-menu')
-            tl = gsap.timeline().fromTo(menu, { opacity: 0, x: 100 }, { opacity: 1, x: 0, display: 'block', duration: 0.5 }).reverse()
+            tl = gsap.timeline().fromTo(menu, { opacity: 0, x: 100, display: 'none' }, { opacity: 1, x: 0, display: 'flex', duration: 0.5 }).reverse()
         }
     }, main.value)
 }
 
 const closeMenu = () => {
     if (!tl.reversed()) {
-        getDebounced(toggleMenuAnimation, 100)
+        getDebounced(() => {
+            if (!tl.reversed()) toggleMenuAnimation()
+        }, 100)
     }
 }
 
