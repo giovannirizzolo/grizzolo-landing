@@ -51,14 +51,16 @@ const triggerMenuAnimation = () => {
         if (self) {
             //@ts-ignore
             const menu = self.selector('.mobile-menu')
-            tl = gsap.timeline().fromTo(menu, { opacity: 0, x: 100 }, { opacity: 1, x: 0, display: 'block', duration: 0.5 }).reverse()
+            tl = gsap.timeline().fromTo(menu, { opacity: 0, x: 100, display: 'none' }, { opacity: 1, x: 0, display: 'flex', duration: 0.5 }).reverse()
         }
     }, main.value)
 }
 
 const closeMenu = () => {
     if (!tl.reversed()) {
-        getDebounced(toggleMenuAnimation, 100)
+        getDebounced(() => {
+            if (!tl.reversed()) toggleMenuAnimation()
+        }, 100)
     }
 }
 
