@@ -1,63 +1,72 @@
-# Nuxt 3 Minimal Starter
+# grizzolo.it
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Personal portfolio of **Giovanni Rizzolo** (aka grizzolo) software engineer from Palermo, Sicily.
 
-## Setup
+→ [grizzolo.it](https://www.grizzolo.it)
 
-Make sure to install the dependencies:
+---
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | [Nuxt 3](https://nuxt.com) + Vue 3 |
+| Styling | Tailwind CSS + SCSS |
+| Animations | GSAP (TextPlugin, EasePack, CSSPlugin) |
+| Images | @nuxt/image (WebP, lazy loading, skeletons) |
+| Fonts | Jost via @nuxtjs/google-fonts (self-hosted) |
+| Deploy | Vercel (edge runtime) |
+
+---
+
+## Features
+
+- **Dark mode** — midnight indie palette with a turquoise accent, View Transitions API ripple effect expanding from the click origin, theme-aware ambient bubbles
+- **Responsive** — mobile-first, tablet breakpoints at `lg:` (1024px), desktop at `xl:` (1280px)
+- **Animations** — floating GSAP bubbles, typing animation, hover skew on experience rows, project card reveals
+- **Skeleton loaders** — shimmer placeholders for portrait, Palermo photos, and Spotify embed
+- **Phone number protection** — served via a server-side API route, never exposed in the client bundle
+- **SEO** — Open Graph + Twitter Card meta, canonical URL, self-hosted fonts
+
+---
+
+## Getting started
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
+npm run dev       # http://localhost:3000
+npm run build     # production build
+npm run lint      # type check (vue-tsc)
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+**Environment variables** — copy `.env.example` and fill in:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
+cp .env.example .env
 ```
 
-## Production
+| Variable | Purpose |
+|---|---|
+| `PHONE_NUMBER` | Phone number served by `/api/phone` |
 
-Build the application for production:
+---
 
-```bash
-# npm
-npm run build
+## Project structure
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
+```
+pages/          # index (home)
+components/     # About, Projects, Social, Header, Footer, ProjectCard,
+                # DecorativeElement, SkeletonBlock, ThemeToggle, Loader
+layouts/        # default (bubbles, theme init)
+composables/    # useTheme (dark mode + View Transitions)
+server/api/     # phone.ts (protected phone number endpoint)
+utils/          # bubbles.ts, debounce.ts
+assets/css/     # global.css (CSS tokens, View Transitions), tailwind.custom.css
+public/         # static assets (photos, SVGs, fonts)
 ```
 
-Locally preview production build:
+---
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+<p align="center">
+  Designed and coded with passion by <strong>grizzolo</strong> 🌊
+</p>
