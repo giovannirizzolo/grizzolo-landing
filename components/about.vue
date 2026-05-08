@@ -16,13 +16,35 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 lg:gap-4 xl:grid-cols-2">
-            <nuxt-img class="object-cover w-full aspect-[4/3] rounded-2xl" src="/palermo-1.jpg" alt="A beautiful pic of Pretoria square in the historic center of Palermo" format="webp" width="400" height="300" sizes="xs:45vw sm:45vw lg:280px xl:320px" loading="lazy" fit="cover" quality="70" placeholder />
-            <nuxt-img class="object-cover w-full aspect-[4/3] rounded-2xl" src="/palermo-2.jpg" alt="A pic of Palermo" format="webp" width="400" height="300" sizes="xs:45vw sm:45vw lg:280px xl:320px" loading="lazy" fit="cover" quality="70" placeholder />
-            <nuxt-img class="object-cover w-full aspect-[4/3] rounded-2xl" src="/palermo-3.jpg" alt="A pic of Palermo" format="webp" width="400" height="300" sizes="xs:45vw sm:45vw lg:280px xl:320px" loading="lazy" placeholder />
-            <nuxt-img class="object-cover w-full aspect-[4/3] rounded-2xl" src="/palermo-4.jpg" alt="A pic of Palermo" format="webp" width="400" height="300" sizes="xs:45vw sm:45vw lg:280px xl:320px" loading="lazy" placeholder />
+        <div class="grid grid-cols-2 gap-4 xl:grid-cols-2">
+            <div v-for="(photo, idx) in photos" :key="photo.src" class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                <SkeletonBlock v-if="!loaded[idx]" width="100%" height="100%" border-radius="0" />
+                <nuxt-img
+                    class="object-cover w-full h-full"
+                    :src="photo.src"
+                    :alt="photo.alt"
+                    format="webp"
+                    width="400"
+                    height="300"
+                    sizes="xs:45vw sm:45vw lg:280px xl:320px"
+                    loading="lazy"
+                    fit="cover"
+                    quality="70"
+                    @load="loaded[idx] = true"
+                />
+            </div>
         </div>
 
         <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10 shrink-0" :element-count="6" />
     </div>
 </template>
+<script setup lang="ts">
+const photos = [
+    { src: '/palermo-1.jpg', alt: 'A beautiful pic of Pretoria square in the historic center of Palermo' },
+    { src: '/palermo-2.jpg', alt: 'A pic of Palermo' },
+    { src: '/palermo-3.jpg', alt: 'A pic of Palermo' },
+    { src: '/palermo-4.jpg', alt: 'A pic of Palermo' },
+]
+
+const loaded = ref(photos.map(() => false))
+</script>
