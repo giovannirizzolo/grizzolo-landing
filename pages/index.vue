@@ -6,7 +6,8 @@
             id="portrait"
             format="webp"
             width="100vw"
-            sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" />
+            sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw"
+            placeholder />
         <div class="flex flex-col gap-4 items-center xl:items-start">
             <div class="text-subtitle-1 hidden xl:block">Welcome to my website</div>
             <div class="flex flex-col gap-4 mb-4">
@@ -18,7 +19,19 @@
                     <h6 class="text-green">developer</h6>
                 </div>
             </div>
-            <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/playlist/1qhdGOWZxofPTMw7KpRTjc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;" loading="lazy" />
+            <div class="relative w-full" style="height: 152px">
+                <SkeletonBlock v-if="!spotifyLoaded" width="100%" height="152px" />
+                <iframe
+                    v-show="spotifyLoaded"
+                    style="border-radius: 12px"
+                    src="https://open.spotify.com/embed/playlist/1qhdGOWZxofPTMw7KpRTjc?utm_source=generator&theme=0"
+                    width="100%"
+                    height="152"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
+                    @load="spotifyLoaded = true"
+                />
+            </div>
             <div class="flex gap-2 flex-col xl:flex-row items-center mt-4">
                 <NuxtLink to="https://calendly.com/grizzolo/30min" target="_blank" class="bg-secondary py-2 px-5 rounded-[10px] text-primary text-caption max-w-xs text-caption xl:text-button">Book a call</NuxtLink>
                 <NuxtLink to="#experiences" class="py-2 px-5 rounded-[10px] border border-secondary text-secondary max-w-xs text-caption xl:text-button">See my experiences</NuxtLink>
@@ -33,6 +46,7 @@
 import gsap from 'gsap'
 
 const grizzoloWords = ref<Array<string>>(['Frontend web', 'Sicilian', 'Relentless', 'Sushi lover 🍣'])
+const spotifyLoaded = ref(false)
 
 const handleProfessionTypingAnimation = () => {
     if (process.client) {

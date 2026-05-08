@@ -24,7 +24,7 @@
                 <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-3.jpg" alt="" format="webp" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" width="100vw" loading="lazy" placeholder />
             </div>
             <div class="xl:col-span-3">
-                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-4.jpg" alt="" format="webp" width="100vw" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" loading="lazy" />
+                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-4.jpg" alt="" format="webp" width="100vw" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" loading="lazy" placeholder />
             </div>
         </div>
         <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10" :element-count="6" />
