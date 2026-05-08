@@ -1,8 +1,8 @@
 <template>
     <div id="experiences" class="flex relative flex-col min-h-screen xl:items-stretch xl:justify-center py-10">
         <div class="mb-24 xl:mb-48 flex flex-col items-center xl:block gap-12">
-            <h4 class="xl:block hidden max-w-xl">Still figuring out how to compete with Musk’s SpaceX, but meanwhile...</h4>
-            <h6 class="xl:hidden block text-center max-w-[65%]">Still figuring out how to compete with Musk’s SpaceX...</h6>
+            <h4 class="xl:block hidden max-w-xl">Still figuring out how to compete with Musk's SpaceX, but meanwhile...</h4>
+            <h6 class="xl:hidden block text-center max-w-[65%]">Still figuring out how to compete with Musk's SpaceX...</h6>
             <div class="xl:hidden block subtitle-2 text-center">...but meanwhile</div>
         </div>
         <div class="flex flex-col gap-4 hover:cursor-pointer">
@@ -27,9 +27,9 @@
             <div class="flex justify-end mt-32 xl:mt-8">
                 <decorative-element class="flex max-w-[40%] xl:max-w-none xl:relative" fill="#379634" :horizontal="true" :element-count="8" />
             </div>
-<project-card
+            <project-card
+                ref="uppercatCardRef"
                 class="appearingContainer"
-                id="appearingUppercat"
                 title="A NoMafia museum of memory"
                 dates="11/21 - 02/22"
                 description="NoMafiaMemorial is a project developed by Uppercat Studio which aims to keep alive the memory of the deceased pioneers of anti-mafia and justice's heroes such as Falcone and Borsellino."
@@ -37,19 +37,13 @@
                 image-src="/falcone-borsellino.jpg"
                 altText="A beautiful pic of the most important heroes of Italian Republic, Giovanni Falcone and Paolo Borsellino"
                 :social-links="[
-                    {
-                        link: 'https://www.instagram.com/nomafiamemorial/',
-                        logo: '/instagram.svg',
-                    },
-                    {
-                        link: 'https://www.facebook.com/nomafiamemorial',
-                        logo: '/facebook.svg',
-                    },
+                    { link: 'https://www.instagram.com/nomafiamemorial/', logo: '/instagram.svg' },
+                    { link: 'https://www.facebook.com/nomafiamemorial', logo: '/facebook.svg' },
                 ]"
             />
             <project-card
+                ref="magicCardRef"
                 class="appearingContainer"
-                id="appearingMagic"
                 title="Magicmotorsport partners"
                 dates="03/22 - 09/22"
                 altText="A screenshot of Magicmotorsport partners platform"
@@ -57,38 +51,26 @@
                 description="A platform entirely dedicated to Magicmotorsport distributors all over the world. Goal of this project is to give them more visibility and chances to increase their market opportunities"
                 project-link="https://partners.magicmotorsport.com/"
                 :social-links="[
-                    {
-                        link: 'https://www.instagram.com/mms.center/',
-                        logo: '/instagram.svg',
-                    },
-                    {
-                        link: 'https://www.facebook.com/magicmotorsport',
-                        logo: '/facebook.svg',
-                    },
+                    { link: 'https://www.instagram.com/mms.center/', logo: '/instagram.svg' },
+                    { link: 'https://www.facebook.com/magicmotorsport', logo: '/facebook.svg' },
                 ]"
             />
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { EProjectCard } from '@/utils/enums/project-card.enum'
 import gsap from 'gsap'
 import ProjectCard from './ProjectCard.vue'
 
-// template refs
-const appearingUppercat = ref<InstanceType<typeof Element>>()
-const appearingMagic = ref<InstanceType<typeof Element>>()
+const uppercatCardRef = ref<InstanceType<typeof ProjectCard>>()
+const magicCardRef = ref<InstanceType<typeof ProjectCard>>()
 
-//tweens
 const uppercatTween = ref<GSAPTween>()
 const magicTween = ref<GSAPTween>()
 
-const projectBox = ref<NodeListOf<Element>>()
-const projectCards = ref<NodeListOf<Element>>()
-
 const timeoutId = ref<ReturnType<typeof setTimeout>>()
 
-const handleMouseEnter = async (e: MouseEvent) => {
+const handleMouseEnter = (e: MouseEvent) => {
     gsap.to(e.target, {
         skewX: -10,
         y: -10,
@@ -96,126 +78,81 @@ const handleMouseEnter = async (e: MouseEvent) => {
         backgroundColor: '#3796344D',
         ease: 'power1.out',
     })
-
     handleHoveredElement(e)
 }
 
 const handleHoveredElement = (e: MouseEvent) => {
     const hoveredElement = e.target as Element
-    const playInterval = 250
 
     timeoutId.value = setTimeout(() => {
-        if (!appearingUppercat.value || !appearingMagic.value) return
-
-        let isMouseOverAppearContainer: boolean
+        const uppercatEl = uppercatCardRef.value?.$el
+        const magicEl = magicCardRef.value?.$el
+        if (!uppercatEl || !magicEl) return
 
         switch (hoveredElement.id) {
             case 'projectBox-2':
-                isMouseOverAppearContainer = isMouseOverElement(e, appearingUppercat.value)
-                if (!isMouseOverAppearContainer && uppercatTween.value) {
-                    // Add a delay before reversing the animation
-                    uppercatTween.value?.play()
-                }
+                if (!isMouseOverElement(e, uppercatEl)) uppercatTween.value?.play()
                 break
             case 'projectBox-3':
-                isMouseOverAppearContainer = isMouseOverElement(e, appearingMagic.value)
-
-                if (!isMouseOverAppearContainer && magicTween.value) {
-                    magicTween.value?.play()
-                }
-                break
-            default:
+                if (!isMouseOverElement(e, magicEl)) magicTween.value?.play()
                 break
         }
-    }, playInterval)
+    }, 250)
 }
 
-const setProjectBoxTween = (target: EventTarget) => {
-    gsap.to(target, {
-        skewX: 0,
-        y: 0,
-        duration: 0.5,
-        backgroundColor: 'transparent',
-        ease: 'power1.inOut',
-    })
-}
 const handleMouseLeave = (e: MouseEvent) => {
     clearTimeout(timeoutId.value)
 
-    if (!appearingUppercat.value || !appearingMagic.value) return
+    const uppercatEl = uppercatCardRef.value?.$el
+    const magicEl = magicCardRef.value?.$el
+    if (!uppercatEl || !magicEl) return
 
-    if (e.target) setProjectBoxTween(e.target)
-
-    let isMouseOverAppearContainer: boolean
+    if (e.target) {
+        gsap.to(e.target, {
+            skewX: 0,
+            y: 0,
+            duration: 0.5,
+            backgroundColor: 'transparent',
+            ease: 'power1.inOut',
+        })
+    }
 
     switch ((e.target as Element).id) {
         case 'projectBox-2':
-            isMouseOverAppearContainer = isMouseOverElement(e, appearingUppercat.value)
-
-            if (!isMouseOverAppearContainer && uppercatTween.value) {
-                uppercatTween.value.reverse()
-            }
+            if (!isMouseOverElement(e, uppercatEl)) uppercatTween.value?.reverse()
             break
         case 'projectBox-3':
-            isMouseOverAppearContainer = isMouseOverElement(e, appearingMagic.value)
-
-            if (!isMouseOverAppearContainer && magicTween.value) {
-                magicTween.value.reverse()
-            }
-            break
-        default:
+            if (!isMouseOverElement(e, magicEl)) magicTween.value?.reverse()
             break
     }
 }
 
 onMounted(() => {
-    if (process.client) {
-        projectBox.value = document.querySelectorAll('.projectBox')
-        projectCards.value = document.querySelectorAll('.appearingContainer')
+    const uppercatEl = uppercatCardRef.value?.$el
+    const magicEl = magicCardRef.value?.$el
+    if (!uppercatEl || !magicEl) return
 
-        projectCards.value.forEach((card, idx) => {
-            switch (idx) {
-                case EProjectCard.MAGIC_PROJECT_CARD:
-                    appearingMagic.value = card
-
-                    break
-                case EProjectCard.UPPERCAT_PROJECT_CARD:
-                    appearingUppercat.value = card
-                    break
-                default:
-                    break
-            }
-        })
-
-        const appearingSetObj = {
-            scale: 0,
-            opacity: 0,
-            display: 'none',
-        }
-
-        const appearingToObj = {
-            scale: 1,
-            opacity: 1,
-            display: 'flex',
-            duration: 1.5,
-            ease: 'power4.out',
-            xPercent: -50,
-            yPercent: -50,
-            left: '50%',
-            top: '60%',
-            paused: true,
-        }
-
-        if (!appearingUppercat.value || !appearingMagic.value) return
-
-        uppercatTween.value = gsap.set(appearingUppercat.value, appearingSetObj)
-        magicTween.value = gsap.set(appearingMagic.value, appearingSetObj)
-
-        uppercatTween.value = gsap.to(appearingUppercat.value, appearingToObj)
-        magicTween.value = gsap.to(appearingMagic.value, appearingToObj)
-
-        appearingMagic.value.addEventListener('mouseleave', () => mouseLeaveHandler(magicTween.value))
-        appearingUppercat.value.addEventListener('mouseleave', () => mouseLeaveHandler(uppercatTween.value))
+    const hiddenState = { scale: 0, opacity: 0, display: 'none' }
+    const appearedState = {
+        scale: 1,
+        opacity: 1,
+        display: 'flex',
+        duration: 1.5,
+        ease: 'power4.out',
+        xPercent: -50,
+        yPercent: -50,
+        left: '50%',
+        top: '60%',
+        paused: true,
     }
+
+    gsap.set(uppercatEl, hiddenState)
+    gsap.set(magicEl, hiddenState)
+
+    uppercatTween.value = gsap.to(uppercatEl, appearedState)
+    magicTween.value = gsap.to(magicEl, appearedState)
+
+    magicEl.addEventListener('mouseleave', () => mouseLeaveHandler(magicTween.value))
+    uppercatEl.addEventListener('mouseleave', () => mouseLeaveHandler(uppercatTween.value))
 })
 </script>
