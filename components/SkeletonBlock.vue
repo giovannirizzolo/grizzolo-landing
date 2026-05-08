@@ -16,6 +16,7 @@ withDefaults(defineProps<{
 
 <style scoped>
 .skeleton-block {
+    pointer-events: none;
     background: linear-gradient(
         90deg,
         var(--skeleton-base)  25%,

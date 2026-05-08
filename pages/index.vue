@@ -24,7 +24,7 @@
         <iframe style="border-radius: 12px"
           src="https://open.spotify.com/embed/playlist/1qhdGOWZxofPTMw7KpRTjc?utm_source=generator&theme=0" width="100%"
           height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
-          @load="spotifyLoaded = true" />
+          @load="onSpotifyLoad" />
       </div>
       <div class="flex gap-2 flex-col lg:flex-row items-center mt-4">
         <NuxtLink to="https://calendly.com/grizzolo/30min" target="_blank"
@@ -43,6 +43,7 @@ import gsap from 'gsap'
 
 const grizzoloWords = ref<Array<string>>(['Frontend web', 'Sicilian', 'Relentless', 'Sushi lover 🍣'])
 const spotifyLoaded = ref(false)
+const onSpotifyLoad = () => { spotifyLoaded.value = true }
 
 const handleProfessionTypingAnimation = () => {
   if (process.client) {
@@ -56,8 +57,10 @@ const handleProfessionTypingAnimation = () => {
   }
 }
 
-onMounted(async () => {
+onMounted(() => {
   handleProfessionTypingAnimation()
+  // Fallback: reveal iframe after 4s if @load never fires (cross-origin quirk)
+  setTimeout(() => { spotifyLoaded.value = true }, 4000)
 })
 
 const siteUrl = 'https://www.grizzolo.it'
