@@ -67,9 +67,28 @@ onMounted(async () => {
     handleProfessionTypingAnimation()
 })
 
+const siteUrl = 'https://www.grizzolo.it'
+const ogImage = `${siteUrl}/portrait.jpg`
+const description = 'Giovanni Rizzolo — frontend web developer from Palermo, Sicily. Building clean, passionate digital experiences.'
+
 useSeoMeta({
     title: 'grizzolo',
-    description: 'grizzolo portfolio website',
+    description,
+    ogTitle: 'grizzolo',
+    ogDescription: description,
+    ogImage,
+    ogImageAlt: 'Giovanni Rizzolo portrait',
+    ogUrl: siteUrl,
+    ogType: 'website',
+    ogSiteName: 'grizzolo',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'grizzolo',
+    twitterDescription: description,
+    twitterImage: ogImage,
+})
+
+useHead({
+    link: [{ rel: 'canonical', href: siteUrl }]
 })
 
 
