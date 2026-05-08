@@ -1,9 +1,7 @@
 <template>
-    <div id="experiences" class="flex relative flex-col min-h-screen xl:items-stretch xl:justify-center py-10">
-        <div class="mb-24 xl:mb-48 flex flex-col items-center xl:block gap-12">
-            <h4 class="xl:block hidden max-w-xl">Still figuring out how to compete with Musk's SpaceX, but meanwhile...</h4>
-            <h6 class="xl:hidden block text-center max-w-[65%]">Still figuring out how to compete with Musk's SpaceX...</h6>
-            <div class="xl:hidden block subtitle-2 text-center">...but meanwhile</div>
+    <div id="experiences" class="flex relative flex-col py-20 lg:py-28 xl:items-stretch">
+        <div class="mb-12 lg:mb-20 flex flex-col items-center lg:items-start gap-4">
+            <h4 class="text-center lg:text-start max-w-xl">Still figuring out how to compete with Musk's SpaceX, but meanwhile...</h4>
         </div>
         <div class="flex flex-col gap-4 hover:cursor-pointer">
             <div class="p-5 xl:px-8 xl:py-16 flex justify-between border border-t-0" id="projectBox-1" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
@@ -24,8 +22,8 @@
                 <h5 class="hidden xl:inline-block">10/22</h5>
                 <div class="text-body-2 inline-block xl:hidden">10/22</div>
             </div>
-            <div class="flex justify-end mt-32 xl:mt-8">
-                <decorative-element class="flex max-w-[40%] xl:max-w-none xl:relative" fill="#379634" :horizontal="true" :element-count="8" />
+            <div class="flex justify-end mt-12 lg:mt-8">
+                <decorative-element class="flex max-w-[40%] lg:max-w-none" fill="#379634" :horizontal="true" :element-count="8" />
             </div>
             <project-card
                 ref="uppercatCardRef"

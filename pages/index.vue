@@ -1,23 +1,23 @@
 <template>
-    <div class="flex flex-col xl:flex-row-reverse xl:justify-between min-h-screen justify-start items-center xl:items-stretch mt-8">
-        <nuxt-img class="w-[140px] h-[140px] xl:w-[540px] xl:h-[540px] object-cover col-start-3 rounded-tl-[50px] rounded-br-[50px]"
+    <div class="flex flex-col lg:flex-row-reverse lg:justify-between py-12 lg:py-20 justify-start items-center lg:items-stretch mt-8 gap-8 lg:gap-12">
+        <nuxt-img class="w-[140px] h-[140px] lg:w-[320px] lg:h-[320px] xl:w-[540px] xl:h-[540px] object-cover rounded-tl-[50px] rounded-br-[50px] shrink-0"
             src="/portrait.jpg"
             alt="grizzolo portrait"
             id="portrait"
             format="webp"
             width="540"
             height="540"
-            sizes="xs:140px sm:140px md:140px lg:140px xl:540px"
+            sizes="xs:140px sm:140px md:140px lg:320px xl:540px"
             fetchpriority="high"
             preload
             placeholder />
-        <div class="flex flex-col gap-4 items-center xl:items-start">
-            <div class="text-subtitle-1 hidden xl:block">Welcome to my website</div>
+        <div class="flex flex-col gap-4 items-center lg:items-start lg:justify-center w-full lg:w-auto">
+            <div class="text-subtitle-1 hidden lg:block">Welcome to my website</div>
             <div class="flex flex-col gap-4 mb-4">
-                <h1 class="hello hidden xl:inline-block">I'm grizzolo</h1>
-                <h4 class="hello xl:hidden inline-block text-center">I'm grizzolo</h4>
-                <div class="flex items-end justify-center xl:justify-start">
-                    <h6 class="words text-center xl:text-start"></h6>
+                <h1 class="hello hidden lg:inline-block">I'm grizzolo</h1>
+                <h4 class="hello lg:hidden inline-block text-center">I'm grizzolo</h4>
+                <div class="flex items-end justify-center lg:justify-start">
+                    <h6 class="words text-center lg:text-start"></h6>
                     <span class="circle">_</span>
                     <h6 class="text-green">developer</h6>
                 </div>
@@ -35,9 +35,9 @@
                     @load="spotifyLoaded = true"
                 />
             </div>
-            <div class="flex gap-2 flex-col xl:flex-row items-center mt-4">
-                <NuxtLink to="https://calendly.com/grizzolo/30min" target="_blank" class="bg-secondary py-2 px-5 rounded-[10px] text-primary text-caption max-w-xs text-caption xl:text-button">Book a call</NuxtLink>
-                <NuxtLink to="#experiences" class="py-2 px-5 rounded-[10px] border border-secondary text-secondary max-w-xs text-caption xl:text-button">See my experiences</NuxtLink>
+            <div class="flex gap-2 flex-col lg:flex-row items-center mt-4">
+                <NuxtLink to="https://calendly.com/grizzolo/30min" target="_blank" class="bg-secondary py-2 px-5 rounded-[10px] text-primary text-button">Book a call</NuxtLink>
+                <NuxtLink to="#experiences" class="py-2 px-5 rounded-[10px] border border-secondary text-secondary text-button">See my experiences</NuxtLink>
             </div>
         </div>
     </div>
