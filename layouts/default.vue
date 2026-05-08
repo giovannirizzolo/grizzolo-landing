@@ -1,5 +1,5 @@
 <template>
-    <div :class="['px-6 xl:px-8 py-8 xl:mx-auto xl:w-[1440px]', { 'backdrop': isMenuOpen }]" >
+    <div :class="['px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-8 mx-auto max-w-[1440px]', { 'backdrop': isMenuOpen }]" >
       <div id="frame" ref="frame">
         <div 
             v-for="_, idx in bubbleCount"

@@ -1,34 +1,50 @@
 <template>
-    <div id="about" class="flex flex-col xl:items-start xl:flex-row xl:justify-between min-h-screen justify-center gap-8 py-10">
-        <div class="flex flex-col items-center xl:items-start gap-8">
-            <h3 class="hidden xl:block mb-5">Who is <span class="text-green">grizzolo</span>?</h3>
-            <h4 class="xl:hidden block text-center">Who is <span class="text-green">grizzolo</span>?</h4>
-            <h6 class="hidden xl:block mb-8">Well... still not famous enough to find an answer on Wikipedia, so....</h6>
-            <div class="xl:hidden block text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer on Wikipedia, so....</div>
-            <decorative-element class="hidden xl:flex xl:relative" fill="#379634" :horizontal="true" :element-count="8" />
-            <div class="max-w-xl flex flex-col items-center xl:items-start gap-8">
-                <div class="body-1 text-center xl:text-start max-w-[70%]">Giovanni Rizzolo (aka grizzolo) is a web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</div>
-                <div class="hidden xl:body-1 text-center xl:text-start max-w-[65%]">28 years old, 100% mediterranean blood flows into his veins.</div>
-                <div class="body-1 text-center xl:text-start max-w-[65%]">His obsession for tech mixed with an unconditional love for his homeland are the fuel for powering his will to make Sicily a better place for people to work, live, so grow as professionals and most important, as human beings.</div>
-            </div>
-        </div>
-        <div class="grid justify-items-center xl:content-center xl:grid-cols-7 gap-4">
-            <div class="xl:col-start-2 xl:col-span-3">
-                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-1.jpg" alt="A beautiful pic of Pretoria square in the historic center of Palermo" format="webp" width="400" height="300" sizes="xs:90vw sm:400px" loading="lazy" fit="cover" quality="60" placeholder />
-            </div>
-            <div class="xl:col-span-3">
-                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl overflow-hidden" src="/palermo-2.jpg" alt="" format="webp" width="400" height="300" sizes="xs:90vw sm:400px" loading="lazy" fit="cover" quality="60" placeholder />
-            </div>
-            <div class="xl:col-span-3">
-                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-3.jpg" alt="" format="webp" width="400" height="300" sizes="xs:90vw sm:400px" loading="lazy" placeholder />
-            </div>
-            <div class="xl:col-span-3">
-                <nuxt-img class="object-cover w-[400px] h-[300px] rounded-2xl" src="/palermo-4.jpg" alt="" format="webp" width="400" height="300" sizes="xs:90vw sm:400px" loading="lazy" placeholder />
-            </div>
-        </div>
-        <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10" :element-count="6" />
+  <div id="about" class="flex flex-col lg:flex-row lg:justify-between lg:items-start py-20 lg:py-28 gap-12 lg:gap-16">
+    <div class="flex flex-col items-center lg:items-start gap-6 lg:max-w-sm xl:max-w-md shrink-0">
+      <h3 class="hidden lg:block">Who is <span class="text-green">grizzolo</span>?</h3>
+      <h4 class="lg:hidden text-center">Who is <span class="text-green">grizzolo</span>?</h4>
+
+      <h6 class="hidden lg:block">Well... still not famous enough to find an answer on Wikipedia, so...</h6>
+      <div class="lg:hidden text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer
+        on Wikipedia, so...</div>
+
+      <decorative-element class="hidden lg:flex lg:relative" fill="#379634" :horizontal="true" :element-count="8" />
+
+      <div class="flex flex-col items-center lg:items-start gap-6">
+        <p class="text-body-2 text-center lg:text-start">Giovanni Rizzolo (aka grizzolo) is a web developer born in the
+          sunny city of <span class="text-green">Palermo</span>, Sicily.</p>
+        <p class="text-body-2 text-center lg:text-start">{{ age }} years old, 100% mediterranean blood flows through his
+          veins.</p>
+        <p class="text-body-3 text-center lg:text-start">His obsession for tech, mixed with an unconditional love for
+          his homeland, fuels his will to make Sicily a better place for people to work, live, and grow, as
+          professionals and, most importantly, as human beings.</p>
+      </div>
     </div>
+
+    <div class="grid grid-cols-2 gap-4 xl:grid-cols-2">
+      <div v-for="(photo, idx) in photos" :key="photo.src" class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+        <SkeletonBlock v-if="!loaded[idx]" width="100%" height="100%" border-radius="0" />
+        <nuxt-img class="object-cover w-full h-full" :src="photo.src" :alt="photo.alt" format="webp" width="400"
+          height="300" sizes="xs:45vw sm:45vw lg:280px xl:320px" loading="lazy" fit="cover" quality="70"
+          @load="loaded[idx] = true" />
+      </div>
+    </div>
+
+    <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10 shrink-0" :element-count="6" />
+  </div>
 </template>
 <script setup lang="ts">
-import DecorativeElement from './DecorativeElement.vue'
+const birthDate = new Date(1998, 2, 14) // 14 March 1998
+const today = new Date()
+const age = today.getFullYear() - birthDate.getFullYear() -
+  (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0)
+
+const photos = [
+  { src: '/palermo-1.jpg', alt: 'A beautiful pic of Pretoria square in the historic center of Palermo' },
+  { src: '/palermo-2.jpg', alt: 'A pic of Palermo' },
+  { src: '/palermo-3.jpg', alt: 'A pic of Palermo' },
+  { src: '/palermo-4.jpg', alt: 'A pic of Palermo' },
+]
+
+const loaded = ref(photos.map(() => false))
 </script>
