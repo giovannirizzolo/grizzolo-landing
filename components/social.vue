@@ -5,10 +5,11 @@
     </div>
 
     <div class="hidden lg:block text-end">
-      <h5>You can call me at <button @click="fetchPhoneNumber" class="text-green underline">this number</button> or <a
-          href="mailto:rizzolo.giovanni98@gmail.com" target="_blank" class="text-green underline">email me!</a></h5>
+      <h5>You can call me at <button @click="fetchPhoneNumber" class="text-accent underline">this number</button> or <a
+          href="mailto:rizzolo.giovanni98@gmail.com" target="_blank" class="text-accent underline">email me!</a></h5>
       <Loader v-if="loading" />
-      <a v-if="phoneNumber" :href="`tel:+39${phoneNumber}`" class="text-subtitle-1 text-green underline">{{ phoneNumber }}</a>
+      <a v-if="phoneNumber" :href="`tel:+39${phoneNumber}`" class="text-subtitle-1 text-accent underline">{{ phoneNumber
+        }}</a>
     </div>
 
     <div class="max-w-sm lg:max-w-xl">
@@ -23,23 +24,23 @@
             Read my
             <span class="hidden lg:inline px-6 text-[23px] tracking-[0.15px] font-medium">megalomaniacal</span>
             posts on
-            <a target="_blank" class="underline text-green pl-6" href="https://www.linkedin.com/in/giovanni-rizzolo/">LinkedIn</a>
+            <a target="_blank" class="underline text-accent pl-6"
+              href="https://www.linkedin.com/in/giovanni-rizzolo/">LinkedIn</a>
           </h3>
           <div class="lg:hidden text-center">Read my megalomaniacal posts on <a
-              href="https://www.linkedin.com/in/giovanni-rizzolo/"
-              class="text-green underline">LinkedIn</a></div>
+              href="https://www.linkedin.com/in/giovanni-rizzolo/" class="text-accent underline">LinkedIn</a></div>
         </li>
         <li class="flex justify-center lg:justify-start lg:items-center">
-          <h3 class="hidden lg:block">Fix my broken code on <a target="_blank" class="underline text-green"
+          <h3 class="hidden lg:block">Fix my broken code on <a target="_blank" class="underline text-accent"
               href="https://github.com/giovannirizzolo">GitHub</a></h3>
           <div class="lg:hidden text-center">Fix my broken code on <a href="https://github.com/giovannirizzolo"
-              class="text-green underline">GitHub</a></div>
+              class="text-accent underline">GitHub</a></div>
         </li>
         <li class="flex justify-center lg:justify-start lg:items-center">
-          <h3 class="hidden lg:block">Like my pics on <a target="_blank" class="underline text-green"
+          <h3 class="hidden lg:block">Like my pics on <a target="_blank" class="underline text-accent"
               href="https://www.instagram.com/giovanni.rizzolo/">Instagram</a></h3>
           <div class="lg:hidden text-center">Like my pics on <a href="https://www.instagram.com/giovanni.rizzolo/"
-              class="underline text-green">Instagram</a></div>
+              class="underline text-accent">Instagram</a></div>
         </li>
       </ul>
     </div>
@@ -49,11 +50,12 @@
         <decorative-element class="flex flex-col text-secondary" :element-count="4" />
       </div>
       <div class="flex gap-4 mt-2">
-        <a href="mailto:rizzolo.giovanni98@gmail.com" target="_blank" class="text-green underline">Email</a>
-        <button @click="fetchPhoneNumber" class="text-green underline">Call me</button>
+        <a href="mailto:rizzolo.giovanni98@gmail.com" target="_blank" class="text-accent underline">Email</a>
+        <button @click="fetchPhoneNumber" class="text-accent underline">Call me</button>
       </div>
       <Loader v-if="loading" />
-      <a v-if="phoneNumber" :href="`tel:+39${phoneNumber}`" class="text-subtitle-2 text-green underline">{{ phoneNumber }}</a>
+      <a v-if="phoneNumber" :href="`tel:+39${phoneNumber}`" class="text-subtitle-2 text-accent underline">{{ phoneNumber
+        }}</a>
     </div>
   </div>
 </template>
@@ -79,7 +81,7 @@ const fetchPhoneNumber = async () => {
     width: 16px;
     height: 16px;
     margin-right: 8px;
-    background-color: var(--color-green);
+    background-color: var(--color-accent);
     -webkit-mask: url('/decorative-green-single.svg') no-repeat center / contain;
     mask: url('/decorative-green-single.svg') no-repeat center / contain;
     vertical-align: middle;

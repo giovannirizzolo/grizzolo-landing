@@ -55,8 +55,8 @@ const { isDark, toggle } = useTheme()
     transition: border-color 0.3s, color 0.3s, transform 0.2s;
 }
 .theme-toggle:hover {
-    border-color: var(--color-green);
-    color: var(--color-green);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
     transform: scale(1.1);
 }
 </style>

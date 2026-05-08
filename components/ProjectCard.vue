@@ -6,7 +6,10 @@
                 <div class="text-subtitle-2">{{ dates }}</div>
                 <div class="text-body-2">{{ description }}</div>
             </div>
-            <nuxt-img :src="imageSrc" class="object-contain flex items-start xl:w-[45%] rounded-2xl" :alt="altText ?? ''" format="webp" width="600" height="400" sizes="xs:90vw xl:45vw" fit="contain" placeholder />
+            <div class="photo-container relative rounded-2xl overflow-hidden xl:w-[45%]">
+                <nuxt-img :src="imageSrc" class="object-contain w-full" :alt="altText ?? ''" format="webp" width="600" height="400" sizes="xs:90vw xl:45vw" fit="contain" placeholder />
+                <div class="photo-glow-overlay" />
+            </div>
         </div>
         <div class="flex justify-between items-center">
             <nuxt-link v-if="projectLink" :to="projectLink" target="_blank" class="flex items-center px-4 py-2 text-button bg-secondary rounded-xl text-primary">Check it out</nuxt-link>
