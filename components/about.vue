@@ -8,7 +8,7 @@
       <div class="lg:hidden text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer
         on Wikipedia, so...</div>
 
-      <decorative-element class="hidden lg:flex lg:relative" fill="#379634" :horizontal="true" :element-count="8" />
+      <decorative-element class="hidden lg:flex lg:relative text-green" fill="currentColor" :horizontal="true" :element-count="8" />
 
       <div class="flex flex-col items-center lg:items-start gap-6">
         <p class="text-body-2 text-center lg:text-start">Giovanni Rizzolo (aka grizzolo) is a web developer born in the
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10 shrink-0" :element-count="6" />
+    <decorative-element class="hidden xl:block xl:relative xl:right-32 xl:-top-10 shrink-0 text-secondary" :element-count="6" />
   </div>
 </template>
 <script setup lang="ts">

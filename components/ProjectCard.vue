@@ -12,7 +12,7 @@
             <nuxt-link v-if="projectLink" :to="projectLink" target="_blank" class="flex items-center px-4 py-2 text-button bg-secondary rounded-xl text-primary">Check it out</nuxt-link>
             <div class="flex justify-end gap-4" v-if="socialLinks && socialLinks.length">
                 <nuxt-link v-for="(social, _) in socialLinks" target="_blank" :key="_" :to="social.link">
-                    <nuxt-img :src="social.logo" width="30px" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" />
+                    <nuxt-img :src="social.logo" width="30px" sizes="xl:100vw lg:50vw md:50vw sm:50vw xs:50vw" class="dark:invert dark:brightness-200" />
                 </nuxt-link>
             </div>
         </div>

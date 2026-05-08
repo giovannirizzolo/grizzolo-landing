@@ -21,7 +21,7 @@ const props = defineProps({
     },
     fill: {
         type: String,
-        default: '#000',
+        default: 'currentColor',
     },
     elementCount: {
         type: Number,

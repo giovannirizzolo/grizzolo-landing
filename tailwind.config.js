@@ -1,15 +1,16 @@
 module.exports = {
+    darkMode: 'class',
     theme: {
         colors: {
-            'primary': '#EFF0D1',
-            'secondary': '#1C110A',
-            'green': '#379634'
-        },  
+            'primary': 'var(--color-primary)',
+            'secondary': 'var(--color-secondary)',
+            'green': 'var(--color-green)',
+        },
         fontFamily: {
             sans: ['Jost'],
-        },  
-    container: {
-        center: true,
-    },
+        },
+        container: {
+            center: true,
+        },
     },
 }

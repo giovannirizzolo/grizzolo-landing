@@ -46,7 +46,7 @@
 
     <div class="flex lg:hidden flex-col items-center gap-4">
       <div class="flex justify-center max-h-[18vw]">
-        <decorative-element class="flex flex-col" :element-count="4" />
+        <decorative-element class="flex flex-col text-secondary" :element-count="4" />
       </div>
       <div class="flex gap-4 mt-2">
         <a href="mailto:rizzolo.giovanni98@gmail.com" target="_blank" class="text-green underline">Email</a>
@@ -74,11 +74,15 @@ const fetchPhoneNumber = async () => {
 <style>
 @media (min-width: 1024px) {
   .social-list li::before {
-    content: url('/decorative-green-single.svg');
+    content: '';
     display: inline-block;
     width: 16px;
     height: 16px;
     margin-right: 8px;
+    background-color: var(--color-green);
+    -webkit-mask: url('/decorative-green-single.svg') no-repeat center / contain;
+    mask: url('/decorative-green-single.svg') no-repeat center / contain;
+    vertical-align: middle;
   }
 }
 </style>

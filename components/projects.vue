@@ -23,7 +23,7 @@
                 <div class="text-body-2 inline-block xl:hidden">10/22</div>
             </div>
             <div class="flex justify-end mt-12 lg:mt-8">
-                <decorative-element class="flex max-w-[40%] lg:max-w-none" fill="#379634" :horizontal="true" :element-count="8" />
+                <decorative-element class="flex max-w-[40%] lg:max-w-none text-green" fill="currentColor" :horizontal="true" :element-count="8" />
             </div>
             <project-card
                 ref="uppercatCardRef"
