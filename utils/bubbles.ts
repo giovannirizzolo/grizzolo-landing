@@ -4,31 +4,31 @@ const bubbleSize = 15
 const swayDuration = 5
 const swayDist = 25
 
-const width = ref<number>(process.client ? window.innerWidth : 0)
-const height = ref<number>(process.client ? window.innerHeight : 0)
-
-let floatDist = height.value * 0.25
+let width = 0
+let height = 0
 
 if (process.client) {
+    width = window.innerWidth
+    height = window.innerHeight
     window.addEventListener('resize', () => {
-        width.value = window.innerWidth
-        height.value = window.innerHeight
+        width = window.innerWidth
+        height = window.innerHeight
     })
 }
 
 export const createTween = (bubble: HTMLDivElement, starting?: boolean) => {
-    let startPos = getRandom(height.value),
-        dimension = bubble.getBoundingClientRect()
+    const floatDist = height * 0.25
+    const dimension = bubble.getBoundingClientRect()
 
-    if (starting || dimension.top + bubble.offsetHeight < 0 || dimension.left + bubble.offsetWidth < 0 || dimension.left + bubble.offsetWidth > width.value) {
-        let size = getRandom(bubbleSize, bubbleSize * 5)
+    if (starting || dimension.top + bubble.offsetHeight < 0 || dimension.left + bubble.offsetWidth < 0 || dimension.left + bubble.offsetWidth > width) {
+        const size = getRandom(bubbleSize, bubbleSize * 5)
         gsap.set(bubble, {
             width: size,
             height: size,
             x: 0,
             y: 0,
-            top: startPos,
-            left: getRandom(-(size / 2), width.value - size / 2),
+            top: getRandom(height),
+            left: getRandom(-(size / 2), width - size / 2),
             opacity: getRandom(0.5, 1),
             rotation: getRandom(0, 360),
         })
@@ -37,23 +37,14 @@ export const createTween = (bubble: HTMLDivElement, starting?: boolean) => {
     gsap.to(bubble, {
         duration: getRandom(swayDuration),
         ease: 'none',
-        y: getFloatDist(floatDist),
-        x: getSwayDist(),
+        y: '-=' + getRandom(floatDist) + 'px',
+        x: (Math.random() >= 0.5 ? '+=' : '-=') + getRandom(swayDist) + 'px',
         rotation: getRandom(-90, 90),
         onComplete: () => createTween(bubble, false),
     })
 }
 
-const getSwayDist = () => {
-    let dir = Math.random() >= 0.5 ? '-' : '+'
-    return dir + '=' + getRandom(swayDist) + 'px'
-}
-
-const getFloatDist = (floatDist: number) => {
-    return '-=' + getRandom(floatDist) + 'px'
-}
-
 const getRandom = (min: number, max: number | null = null) => {
-    let realMax = max === null ? min * 2 : max
+    const realMax = max === null ? min * 2 : max
     return min + Math.random() * (realMax - min)
 }
