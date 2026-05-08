@@ -4,15 +4,15 @@
             <h3 class="hidden lg:block">Who is <span class="text-green">grizzolo</span>?</h3>
             <h4 class="lg:hidden text-center">Who is <span class="text-green">grizzolo</span>?</h4>
 
-            <h6 class="hidden lg:block">Well... still not famous enough to find an answer on Wikipedia, so....</h6>
-            <div class="lg:hidden text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer on Wikipedia, so....</div>
+            <h6 class="hidden lg:block">Well... still not famous enough to find an answer on Wikipedia, so...</h6>
+            <div class="lg:hidden text-subtitle-2 text-center max-w-[75%]">Well... still not famous enough to find an answer on Wikipedia, so...</div>
 
             <decorative-element class="hidden lg:flex lg:relative" fill="#379634" :horizontal="true" :element-count="8" />
 
             <div class="flex flex-col items-center lg:items-start gap-6">
                 <p class="text-body-2 text-center lg:text-start">Giovanni Rizzolo (aka grizzolo) is a web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</p>
-                <p class="text-body-2 text-center lg:text-start">{{ age }} years old, 100% mediterranean blood flows into his veins.</p>
-                <p class="text-body-2 text-center lg:text-start">His obsession for tech mixed with an unconditional love for his homeland are the fuel for powering his will to make Sicily a better place for people to work, live, so grow as professionals and most important, as human beings.</p>
+                <p class="text-body-2 text-center lg:text-start">{{ age }} years old, 100% mediterranean blood flows through his veins.</p>
+                <p class="text-body-2 text-center lg:text-start">His obsession for tech, mixed with an unconditional love for his homeland, fuels his will to make Sicily a better place for people to work, live, and grow — as professionals and, most importantly, as human beings.</p>
             </div>
         </div>
 

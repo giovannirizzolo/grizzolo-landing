@@ -12,8 +12,8 @@
     </div>
 
     <div class="max-w-sm lg:max-w-xl">
-      <h4 class="hidden lg:block">But If you want to find out more, check out my social links to...</h4>
-      <h6 class="lg:hidden text-center">But If you want to find out more, check out my social links to...</h6>
+      <h4 class="hidden lg:block">But if you want to find out more, check out my social links to...</h4>
+      <h6 class="lg:hidden text-center">But if you want to find out more, check out my social links to...</h6>
     </div>
 
     <div class="flex justify-center lg:justify-end">
