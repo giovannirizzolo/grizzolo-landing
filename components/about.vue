@@ -11,7 +11,7 @@
 
             <div class="flex flex-col items-center lg:items-start gap-6">
                 <p class="text-body-2 text-center lg:text-start">Giovanni Rizzolo (aka grizzolo) is a web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</p>
-                <p class="text-body-2 text-center lg:text-start">28 years old, 100% mediterranean blood flows into his veins.</p>
+                <p class="text-body-2 text-center lg:text-start">{{ age }} years old, 100% mediterranean blood flows into his veins.</p>
                 <p class="text-body-2 text-center lg:text-start">His obsession for tech mixed with an unconditional love for his homeland are the fuel for powering his will to make Sicily a better place for people to work, live, so grow as professionals and most important, as human beings.</p>
             </div>
         </div>
@@ -39,6 +39,11 @@
     </div>
 </template>
 <script setup lang="ts">
+const birthDate = new Date(1998, 2, 14) // 14 March 1998
+const today = new Date()
+const age = today.getFullYear() - birthDate.getFullYear() -
+    (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0)
+
 const photos = [
     { src: '/palermo-1.jpg', alt: 'A beautiful pic of Pretoria square in the historic center of Palermo' },
     { src: '/palermo-2.jpg', alt: 'A pic of Palermo' },
