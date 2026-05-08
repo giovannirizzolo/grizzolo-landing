@@ -8,7 +8,7 @@
             <decorative-element class="hidden xl:flex xl:relative" fill="#379634" :horizontal="true" :element-count="8" />
             <div class="max-w-xl flex flex-col items-center xl:items-start gap-8">
                 <div class="body-1 text-center xl:text-start max-w-[70%]">Giovanni Rizzolo (aka grizzolo) is a web developer born in the sunny city of <span class="text-green">Palermo</span>, Sicily.</div>
-                <div class="hidden xl:body-1 text-center xl:text-start max-w-[65%]">25 years old, 100% mediterranean blood flows into his veins.</div>
+                <div class="hidden xl:body-1 text-center xl:text-start max-w-[65%]">28 years old, 100% mediterranean blood flows into his veins.</div>
                 <div class="body-1 text-center xl:text-start max-w-[65%]">His obsession for tech mixed with an unconditional love for his homeland are the fuel for powering his will to make Sicily a better place for people to work, live, so grow as professionals and most important, as human beings.</div>
             </div>
         </div>

@@ -27,8 +27,7 @@
             <div class="flex justify-end mt-32 xl:mt-8">
                 <decorative-element class="flex max-w-[40%] xl:max-w-none xl:relative" fill="#379634" :horizontal="true" :element-count="8" />
             </div>
-            <project-card class="appearingContainer" id="appearingElfi" image-src="/palermo-2.jpg" title="radom" dates="radom" description="radom" />
-            <project-card
+<project-card
                 class="appearingContainer"
                 id="appearingUppercat"
                 title="A NoMafia museum of memory"

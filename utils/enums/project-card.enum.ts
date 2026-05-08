@@ -1,5 +1,4 @@
 export enum EProjectCard{
-    ELFI_PROJECT_CARD,
     UPPERCAT_PROJECT_CARD,
     MAGIC_PROJECT_CARD,
 }
