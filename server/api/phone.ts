@@ -1,15 +1,4 @@
-export default defineEventHandler(async (event) => {
-    
-    let telephoneNumber
-    
-    telephoneNumber = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('***REDACTED***')
-        }, 3000)    
-    })
-    
-
-    return { 
-        telephoneNumber
-    }
+export default defineEventHandler((event) => {
+    const { phoneNumber } = useRuntimeConfig(event)
+    return { telephoneNumber: phoneNumber }
 })

@@ -32,5 +32,7 @@ export default defineNuxtConfig({
     //altering preset will cause routes prerender break in prod env
     preset: 'vercel-edge',
   },
-  
+  runtimeConfig: {
+    phoneNumber: process.env.PHONE_NUMBER,
+  },
 })
