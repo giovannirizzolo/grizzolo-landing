@@ -17,9 +17,6 @@
     "@types/node": "^22",
     "nuxt": "^3.21.4"
   },
-  "engines": {
-    "node": ">=22.x"
-  },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
     "gsap": "^3.12.2",
