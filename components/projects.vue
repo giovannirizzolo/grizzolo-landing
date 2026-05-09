@@ -1,8 +1,7 @@
 <template>
   <div id="experiences" class="flex relative flex-col py-20 lg:py-28 xl:items-stretch">
     <div class="mb-12 lg:mb-20 flex flex-col items-center lg:items-start gap-4">
-      <h4 class="text-center lg:text-start max-w-xl">Still figuring out how to compete with Musk's SpaceX, but
-        meanwhile...</h4>
+      <h4 class="text-center lg:text-start max-w-xl">{{ t('projects.intro') }}</h4>
     </div>
     <div class="flex flex-col gap-4 hover:cursor-pointer">
       <div class="p-5 xl:px-8 xl:py-16 flex justify-between border border-t-0" id="projectBox-1"
@@ -30,9 +29,9 @@
         <decorative-element class="flex max-w-[40%] lg:max-w-none text-accent" fill="currentColor" :horizontal="true"
           :element-count="8" />
       </div>
-      <project-card ref="uppercatCardRef" class="appearingContainer" title="A NoMafia museum of memory"
+      <project-card ref="uppercatCardRef" class="appearingContainer" :title="t('projects.nomafiaTitle')"
         dates="11/21 - 02/22"
-        description="NoMafiaMemorial is a project developed by Uppercat Studio which aims to keep alive the memory of the deceased pioneers of anti-mafia and justice's heroes such as Falcone and Borsellino."
+        :description="t('projects.nomafiaDesc')"
         project-link="https://www.nomafiamemorial.org/" image-src="/falcone-borsellino.jpg"
         altText="A beautiful pic of the most important heroes of Italian Republic, Giovanni Falcone and Paolo Borsellino"
         :social-links="[
@@ -41,7 +40,7 @@
         ]" />
       <project-card ref="magicCardRef" class="appearingContainer" title="Magicmotorsport partners" dates="03/22 - 09/22"
         altText="A screenshot of Magicmotorsport partners platform" image-src="/magic-partners.png"
-        description="A platform entirely dedicated to Magicmotorsport distributors all over the world. Goal of this project is to give them more visibility and chances to increase their market opportunities"
+        :description="t('projects.magicDesc')"
         project-link="https://partners.magicmotorsport.com/" :social-links="[
           { link: 'https://www.instagram.com/mms.center/', logo: '/instagram.svg' },
           { link: 'https://www.facebook.com/magicmotorsport', logo: '/facebook.svg' },
@@ -52,6 +51,7 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import ProjectCard from './ProjectCard.vue'
+const { t } = useLocale()
 
 const uppercatCardRef = ref<InstanceType<typeof ProjectCard>>()
 const magicCardRef = ref<InstanceType<typeof ProjectCard>>()
