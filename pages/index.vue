@@ -9,14 +9,14 @@
       <div class="photo-glow-overlay" />
     </div>
     <div class="flex flex-col gap-4 items-center lg:items-start lg:justify-center w-full lg:w-auto">
-      <div class="text-subtitle-1 hidden lg:block">Welcome to my website</div>
+      <div class="text-subtitle-1 hidden lg:block">{{ t('hero.welcome') }}</div>
       <div class="flex flex-col gap-4 mb-4">
-        <h1 class="hello hidden lg:inline-block">I'm grizzolo</h1>
-        <h4 class="hello lg:hidden inline-block text-center">I'm grizzolo</h4>
+        <h1 class="hello hidden lg:inline-block">{{ t('hero.iam') }} grizzolo</h1>
+        <h4 class="hello lg:hidden inline-block text-center">{{ t('hero.iam') }} grizzolo</h4>
         <div class="flex items-end justify-center lg:justify-start">
           <h6 class="words text-center lg:text-start"></h6>
           <span class="circle">_</span>
-          <h6 class="text-accent">developer</h6>
+          <h6 class="text-accent" :class="locale === 'it' ? 'order-first mr-2' : 'ml-2'">{{ t('hero.developer') }}</h6>
         </div>
       </div>
       <div class="relative w-full" style="height: 152px">
@@ -28,9 +28,9 @@
       </div>
       <div class="flex gap-2 flex-col lg:flex-row items-center mt-4">
         <NuxtLink to="https://calendly.com/grizzolo/30min" target="_blank"
-          class="bg-primary py-2 px-5 rounded-[10px] bg-secondary text-primary  text-button">Book a call</NuxtLink>
+          class="bg-primary py-2 px-5 rounded-[10px] bg-secondary text-primary  text-button">{{ t('hero.bookCall') }}</NuxtLink>
         <NuxtLink to="#experiences" class="py-2 px-5 rounded-[10px] border border-secondary text-secondary text-button">
-          See my experiences</NuxtLink>
+          {{ t('hero.seeExperiences') }}</NuxtLink>
       </div>
     </div>
   </div>
@@ -41,21 +41,28 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
-const grizzoloWords = ref<Array<string>>(['Frontend web', 'Sicilian', 'Relentless', 'Sushi lover 🍣'])
+const { t, locale } = useLocale()
+
 const spotifyLoaded = ref(false)
 const onSpotifyLoad = () => { spotifyLoaded.value = true }
 
-const handleProfessionTypingAnimation = () => {
-  if (process.client) {
-    let masterTl = gsap.timeline({ repeat: -1 })
+let masterTl: gsap.core.Timeline | null = null
 
-    grizzoloWords.value.forEach((word) => {
-      let tl = gsap.timeline({ repeat: 1, yoyo: true })
-      tl.to('.words', { duration: 1, text: word })
-      masterTl.add(tl)
-    })
-  }
+const handleProfessionTypingAnimation = () => {
+  if (!process.client) return
+  if (masterTl) masterTl.kill()
+  const words = t('hero.words') as string[]
+  masterTl = gsap.timeline({ repeat: -1 })
+  words.forEach((word) => {
+    const tl = gsap.timeline({ repeat: 1, yoyo: true })
+    tl.to('.words', { duration: 1, text: word })
+    masterTl!.add(tl)
+  })
 }
+
+watch(locale, () => {
+  handleProfessionTypingAnimation()
+})
 
 onMounted(() => {
   handleProfessionTypingAnimation()

@@ -4,13 +4,15 @@
         <nuxt-img class="hidden lg:inline-block dark:invert dark:brightness-200" width="105" height="50" src="/logo-desktop.svg" alt="grizzolo logo" />
 
         <div class="hidden lg:flex lg:gap-10 items-center justify-end">
-            <NuxtLink class="text-button" to="#social">Contacts</NuxtLink>
-            <NuxtLink class="text-button" to="#about">About</NuxtLink>
-            <NuxtLink class="text-button" to="#experiences">Experiences</NuxtLink>
+            <NuxtLink class="text-button" to="#social">{{ t('nav.contacts') }}</NuxtLink>
+            <NuxtLink class="text-button" to="#about">{{ t('nav.about') }}</NuxtLink>
+            <NuxtLink class="text-button" to="#experiences">{{ t('nav.experiences') }}</NuxtLink>
+            <LangToggle />
             <ThemeToggle />
         </div>
 
         <div class="flex lg:hidden items-center gap-3">
+            <LangToggle />
             <ThemeToggle />
             <div @click="toggleMenuAnimation">
                 <nuxt-img src="/burger-menu.svg" alt="burger menu logo" width="40" height="40" class="burger-menu cursor-pointer dark:invert dark:brightness-200" format="webp" />
@@ -21,13 +23,13 @@
             <nuxt-img src="/close-menu.svg" alt="close menu" class="cursor-pointer dark:invert dark:brightness-200" @click="toggleMenuAnimation" format="webp" />
             <ul class="text-end flex flex-col gap-3">
                 <li>
-                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#about">About</NuxtLink>
+                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#about">{{ t('nav.about') }}</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#experiences">Experiences</NuxtLink>
+                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#experiences">{{ t('nav.experiences') }}</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#social">Contacts</NuxtLink>
+                    <NuxtLink @click="toggleMenuAnimation" class="text-button text-primary" to="#social">{{ t('nav.contacts') }}</NuxtLink>
                 </li>
             </ul>
         </nav>
@@ -36,6 +38,7 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import { getDebounced } from '@/utils/debounce'
+const { t } = useLocale()
 
 const emit = defineEmits<{
     (e: 'menuToggled'): void

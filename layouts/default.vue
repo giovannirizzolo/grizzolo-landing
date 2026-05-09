@@ -31,6 +31,7 @@
   const frame = ref<InstanceType<typeof HTMLDivElement>>()
 
   const { initTheme } = useTheme()
+  const { initLocale } = useLocale()
 
   const handleBubbles = () => {
       if(bubbles.value){
@@ -46,6 +47,7 @@
   onMounted(() => {
     handleBubbles()
     initTheme()
+    initLocale()
   })
   </script>
   <style>
